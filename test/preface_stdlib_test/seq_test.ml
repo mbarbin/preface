@@ -1,9 +1,3 @@
-let seq t =
-  Alcotest.testable
-    (Preface.Seq.pp (Alcotest.pp t))
-    (Preface.Seq.equal (Alcotest.equal t))
-;;
-
 let fold_map_over_values () =
   let module Prod = Preface.Make.Monoid.Via_combine_and_neutral (struct
     type t = int

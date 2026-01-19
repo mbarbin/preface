@@ -34,7 +34,7 @@ module Ord = struct
 
   let generator =
     let open QCheck2.Gen in
-    frequency [ (3, pure Lt); (3, pure Eq); (3, pure Gt) ]
+    oneof_weighted [ (3, pure Lt); (3, pure Eq); (3, pure Gt) ]
   ;;
 
   let observable =

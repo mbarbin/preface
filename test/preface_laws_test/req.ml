@@ -273,7 +273,7 @@ module Validation = struct
 
   let generator a b =
     let open QCheck2.Gen in
-    frequency
+    oneof_weighted
       [
         (7, a >|= Preface.Validation.valid)
       ; (3, b >|= Preface.Validation.invalid)

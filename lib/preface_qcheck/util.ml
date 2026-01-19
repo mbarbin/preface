@@ -8,18 +8,18 @@ let test ~count ?print generator law f =
 
 let gen_either left right =
   let open QCheck2.Gen in
-  frequency [ (5, left >|= Either.left); (5, right >|= Either.right) ]
+  oneof_weighted [ (5, left >|= Either.left); (5, right >|= Either.right) ]
 ;;
 
 let gen_exn =
   let open QCheck2.Gen in
-  frequency
+  oneof_weighted
     [ (5, pure Not_found); (5, string_printable >|= fun x -> Failure x) ]
 ;;
 
 let gen_result ok error =
   let open QCheck2.Gen in
-  frequency [ (7, ok >|= Result.ok); (3, error >|= Result.error) ]
+  oneof_weighted [ (7, ok >|= Result.ok); (3, error >|= Result.error) ]
 ;;
 
 let gen_try ok = gen_result ok gen_exn
