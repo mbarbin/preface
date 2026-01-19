@@ -1,7 +1,7 @@
 (** A Non empty list. The module allows to deal with non-empty list. Lists where
     the minimum size is one.*)
 
-type 'a t = ( :: ) of ('a * 'a list)
+type 'a t = ( :: ) of 'a * 'a list
 
 val create : 'a -> 'a t
 (** [create x] create a new non-empty list with [x]. *)

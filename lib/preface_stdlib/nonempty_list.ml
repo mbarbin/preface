@@ -1,4 +1,4 @@
-type 'a t = 'a Preface_core.Nonempty_list.t = ( :: ) of ('a * 'a list)
+type 'a t = 'a Preface_core.Nonempty_list.t = ( :: ) of 'a * 'a list
 
 include (
   Preface_core.Nonempty_list :

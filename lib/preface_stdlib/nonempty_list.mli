@@ -5,7 +5,7 @@
 
 (** {1 Type} *)
 
-type 'a t = 'a Preface_core.Nonempty_list.t = ( :: ) of ('a * 'a list)
+type 'a t = 'a Preface_core.Nonempty_list.t = ( :: ) of 'a * 'a list
 
 (** {1 Implementation} *)
 
