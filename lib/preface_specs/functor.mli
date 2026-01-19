@@ -69,4 +69,5 @@ end
 
 (** {1 Additional references}
 
-    - {{:https://wiki.haskell.org/Functor} Haskell's documentation of a Functor} *)
+    - {{:https://wiki.haskell.org/Functor} Haskell's documentation of a Functor}
+*)

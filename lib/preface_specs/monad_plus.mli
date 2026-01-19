@@ -18,7 +18,8 @@ module type WITH_NEUTRAL_AND_COMBINE = sig
   (** @inline *)
 end
 
-(** Minimal definition using [neutral], [combine], [return], [map] and [join]. *)
+(** Minimal definition using [neutral], [combine], [return], [map] and [join].
+*)
 module type WITH_MAP_AND_JOIN = sig
   type 'a t
   (** The type held by the [Monad_plus]. *)
@@ -101,6 +102,6 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/base-4.14.0.0/docs/Control-Monad.html#t:MonadPlus}
-      Haskell's documentation of a Monad plus}
+       Haskell's documentation of a Monad plus}
     - {{:https://en.wikibooks.org/wiki/Haskell/Alternative_and_MonadPlus}
-      Alternative and Monad plus on Haskell Wiki} *)
+       Alternative and Monad plus on Haskell Wiki} *)

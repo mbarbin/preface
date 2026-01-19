@@ -11,8 +11,9 @@ end
 
 module Core_over_functor_via_bind
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_BIND
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_bind.WITH_BIND
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Core_via_map_and_bind (struct
     include Functor
@@ -40,8 +41,9 @@ end
 
 module Core_over_functor_via_kleisli_composition
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Core_via_map_and_kleisli_composition (struct
     include Functor
@@ -70,8 +72,9 @@ end
 
 module Infix
     (Core : Preface_specs.Indexed_bind.CORE)
-    (Operation : Preface_specs.Indexed_bind.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_bind.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_functor.Infix (Core) (Operation)
 
@@ -138,8 +141,9 @@ end
 
 module Over_functor_via_bind
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_BIND
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_bind.WITH_BIND
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_bind (Functor) (Req)
   module Operation = Operation (Core)
@@ -153,8 +157,9 @@ end
 
 module Over_functor_via_kleisli_composition
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_kleisli_composition (Functor) (Req)
   module Operation = Operation (Core)

@@ -44,12 +44,12 @@ let happy_path_without_path () =
           (fun resume an_effect ->
             let f : type b. (b -> 'a) -> b an_effect -> 'a =
              fun resume -> function
-              | Print message ->
-                let () = record output ("print " ^ message) in
-                resume ()
-              | Get_home ->
-                let () = record output "get_home" in
-                resume "/xhtmlboi"
+               | Print message ->
+                 let () = record output ("print " ^ message) in
+                 resume ()
+               | Get_home ->
+                 let () = record output "get_home" in
+                 resume "/xhtmlboi"
             in
             f resume an_effect )
       }
@@ -70,12 +70,12 @@ let happy_path_with_path () =
           (fun resume an_effect ->
             let f : type b. (b -> 'a) -> b an_effect -> 'a =
              fun resume -> function
-              | Print message ->
-                let () = record output ("print " ^ message) in
-                resume ()
-              | Get_home ->
-                let () = record output "get_home" in
-                resume "/xhtmlboi"
+               | Print message ->
+                 let () = record output ("print " ^ message) in
+                 resume ()
+               | Get_home ->
+                 let () = record output "get_home" in
+                 resume "/xhtmlboi"
             in
             f resume an_effect )
       }
@@ -96,12 +96,12 @@ let unhappy_path_without_path () =
           (fun resume an_effect ->
             let f : type b. (b -> 'a) -> b an_effect -> 'a =
              fun resume -> function
-              | Print message ->
-                let () = record output ("print " ^ message) in
-                resume ()
-              | Get_home ->
-                let () = record output "get_home" in
-                Preface.Try.error No_home
+               | Print message ->
+                 let () = record output ("print " ^ message) in
+                 resume ()
+               | Get_home ->
+                 let () = record output "get_home" in
+                 Preface.Try.error No_home
             in
             f resume an_effect )
       }

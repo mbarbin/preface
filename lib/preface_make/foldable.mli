@@ -38,8 +38,9 @@ module Composition (F : Preface_specs.FOLDABLE) (G : Preface_specs.FOLDABLE) :
 (** {2 Sum}
 
     Sum of {!module-type:Preface_specs.FOLDABLE} using the technique described
-    in {{:http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf}
-    Data types à la carte by W. Swierstra}.*)
+    in
+    {{:http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf} Data
+     types à la carte by W. Swierstra}.*)
 
 module Sum (F : Preface_specs.FOLDABLE) (G : Preface_specs.FOLDABLE) : sig
   type 'a sum =

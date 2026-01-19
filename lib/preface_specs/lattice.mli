@@ -1,4 +1,5 @@
-(** A [Lattice] capture the notion of a join semilattice and a meet semilattice *)
+(** A [Lattice] capture the notion of a join semilattice and a meet semilattice
+*)
 
 (** {1 Minimal definition}*)
 

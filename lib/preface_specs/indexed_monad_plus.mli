@@ -5,7 +5,8 @@
 
 (** {1 Minimal definition} *)
 
-(** Minimal interfaces of [Indexed Alternative] without {!module:Indexed_monad}. *)
+(** Minimal interfaces of [Indexed Alternative] without {!module:Indexed_monad}.
+*)
 module type WITH_NEUTRAL_AND_COMBINE = sig
   type ('a, 'index) t
   (** The type held by the [Indexed Monad Plus]. *)
@@ -16,7 +17,8 @@ module type WITH_NEUTRAL_AND_COMBINE = sig
   (** @inline *)
 end
 
-(** Minimal definition using [neutral], [combine], [return], [map] and [join]. *)
+(** Minimal definition using [neutral], [combine], [return], [map] and [join].
+*)
 module type WITH_MAP_AND_JOIN = sig
   type ('a, 'index) t
   (** The type held by the [Indexed Monad Plus]. *)

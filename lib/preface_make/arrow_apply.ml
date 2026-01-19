@@ -1,7 +1,8 @@
 module Core_over_category_and_via_arrow_and_fst
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   include Arrow.Core_over_category_and_via_arrow_and_fst (Category) (Req)
 
@@ -10,8 +11,9 @@ end
 
 module Core_over_category_and_via_arrow_and_split
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   include Arrow.Core_over_category_and_via_arrow_and_split (Category) (Req)
 
@@ -37,8 +39,9 @@ end
 
 module Over_category_and_via_arrow_and_fst
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module Core = Core_over_category_and_via_arrow_and_fst (Category) (Req)
   module Operation = Operation_over_category (Category) (Core)
@@ -52,8 +55,9 @@ end
 
 module Over_category_and_via_arrow_and_split
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module Core = Core_over_category_and_via_arrow_and_split (Category) (Req)
   module Operation = Operation_over_category (Category) (Core)
@@ -67,8 +71,9 @@ end
 
 module Over_arrow
     (Arrow : Preface_specs.ARROW)
-    (Apply : Preface_specs.Arrow_apply.WITH_APPLY
-               with type ('a, 'b) t = ('a, 'b) Arrow.t) =
+    (Apply :
+      Preface_specs.Arrow_apply.WITH_APPLY
+        with type ('a, 'b) t = ('a, 'b) Arrow.t) =
 struct
   module Core_aux =
     Core_over_category_and_via_arrow_and_fst

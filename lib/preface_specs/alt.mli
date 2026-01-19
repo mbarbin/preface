@@ -80,4 +80,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/semigroupoids-5.3.4/docs/Data-Functor-Alt.html}
-      Haskell's documentation of Alt} *)
+       Haskell's documentation of Alt} *)

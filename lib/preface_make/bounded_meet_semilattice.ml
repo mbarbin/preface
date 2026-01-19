@@ -4,8 +4,8 @@ module Core_via_meet_and_top
 
 module Core_over_meet_semilattice_and_via_top
     (Meet_req : Preface_specs.Meet_semilattice.CORE)
-    (Req : Preface_specs.Bounded_meet_semilattice.WITH_TOP
-             with type t = Meet_req.t) =
+    (Req :
+      Preface_specs.Bounded_meet_semilattice.WITH_TOP with type t = Meet_req.t) =
 struct
   include Meet_req
   include Req
@@ -35,8 +35,8 @@ end
 
 module Over_meet_semilattice_and_via_top
     (Meet_req : Preface_specs.Meet_semilattice.CORE)
-    (Req : Preface_specs.Bounded_meet_semilattice.WITH_TOP
-             with type t = Meet_req.t) =
+    (Req :
+      Preface_specs.Bounded_meet_semilattice.WITH_TOP with type t = Meet_req.t) =
 struct
   module Core = Core_over_meet_semilattice_and_via_top (Meet_req) (Req)
   include Core

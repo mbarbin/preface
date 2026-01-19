@@ -177,8 +177,8 @@ end
 
 module Over_monad
     (M : Preface_specs.MONAD)
-    (Req : Preface_specs.Monad_plus.WITH_NEUTRAL_AND_COMBINE
-             with type 'a t = 'a M.t) =
+    (Req :
+      Preface_specs.Monad_plus.WITH_NEUTRAL_AND_COMBINE with type 'a t = 'a M.t) =
 struct
   type 'a t = 'a M.t
 

@@ -24,8 +24,9 @@ module Via_map_and_combine
 
 module Over_functor
     (Functor : Preface_specs.INDEXED_FUNCTOR)
-    (Combine : Preface_specs.Indexed_alt.WITH_COMBINE
-                 with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Combine :
+      Preface_specs.Indexed_alt.WITH_COMBINE
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_ALT with type ('a, 'index) t = ('a, 'index) Combine.t
 
 (** {1 Manual construction}
@@ -39,20 +40,24 @@ module Over_functor
 
 module Via
     (Core : Preface_specs.Indexed_alt.CORE)
-    (Operation : Preface_specs.Indexed_alt.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_alt.INFIX
-               with type ('a, 'index) t = ('a, 'index) Operation.t)
-    (Syntax : Preface_specs.Indexed_alt.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Infix.t) :
+    (Operation :
+      Preface_specs.Indexed_alt.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_alt.INFIX
+        with type ('a, 'index) t = ('a, 'index) Operation.t)
+    (Syntax :
+      Preface_specs.Indexed_alt.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Infix.t) :
   Preface_specs.INDEXED_ALT with type ('a, 'index) t = ('a, 'index) Infix.t
 
 (** {2 Building Core} *)
 
 module Core_over_functor
     (Functor : Preface_specs.INDEXED_FUNCTOR)
-    (Req : Preface_specs.Indexed_alt.WITH_COMBINE
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_alt.WITH_COMBINE
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_alt.CORE with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core (Req : Preface_specs.Indexed_alt.WITH_COMBINE_AND_MAP) :
@@ -68,8 +73,9 @@ module Operation (Core : Preface_specs.Indexed_alt.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_alt.CORE)
-    (Operation : Preface_specs.Indexed_alt.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_alt.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_alt.INFIX with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Deriving Syntax} *)

@@ -20,9 +20,10 @@ end
 
 module Via
     (C : Preface_specs.Traversable.CORE)
-    (O : Preface_specs.Traversable.OPERATION
-           with type 'a t = 'a C.t
-            and type 'a iter = 'a C.iter) =
+    (O :
+      Preface_specs.Traversable.OPERATION
+        with type 'a t = 'a C.t
+         and type 'a iter = 'a C.iter) =
 struct
   include C
   include O
@@ -49,7 +50,10 @@ struct
 end
 
 module Join_with_monad
-    (I : Preface_specs.MONAD) (T : functor (M : Preface_specs.MONAD) ->
+    (I : Preface_specs.MONAD)
+    (T : functor
+      (M : Preface_specs.MONAD)
+      ->
       Preface_specs.TRAVERSABLE
         with type 'a t = 'a M.t
          and type 'a iter = 'a I.t) =

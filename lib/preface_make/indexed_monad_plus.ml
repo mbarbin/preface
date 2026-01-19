@@ -41,8 +41,9 @@ end
 
 module Operation_over_monad
     (Monad : Preface_specs.INDEXED_MONAD)
-    (Req : Preface_specs.Indexed_monad_plus.WITH_NEUTRAL_AND_COMBINE
-             with type ('a, 'index) t = ('a, 'index) Monad.t) =
+    (Req :
+      Preface_specs.Indexed_monad_plus.WITH_NEUTRAL_AND_COMBINE
+        with type ('a, 'index) t = ('a, 'index) Monad.t) =
 struct
   include Monad
 
@@ -63,8 +64,9 @@ module Syntax = Indexed_monad.Syntax
 
 module Infix
     (Core : Preface_specs.Indexed_monad_plus.CORE)
-    (Operation : Preface_specs.Indexed_monad_plus.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_monad_plus.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_monad.Infix (Core) (Operation)
 
@@ -124,8 +126,9 @@ end
 
 module Over_monad
     (Monad : Preface_specs.INDEXED_MONAD)
-    (Req : Preface_specs.Indexed_monad_plus.WITH_NEUTRAL_AND_COMBINE
-             with type ('a, 'index) t = ('a, 'index) Monad.t) =
+    (Req :
+      Preface_specs.Indexed_monad_plus.WITH_NEUTRAL_AND_COMBINE
+        with type ('a, 'index) t = ('a, 'index) Monad.t) =
   Via
     (struct
       include Monad
@@ -149,6 +152,7 @@ module Over_monad
 
 module Over_monad_and_alternative
     (Monad : Preface_specs.INDEXED_MONAD)
-    (Alternative : Preface_specs.INDEXED_ALTERNATIVE
-                     with type ('a, 'index) t = ('a, 'index) Monad.t) =
+    (Alternative :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) Monad.t) =
   Over_monad (Monad) (Alternative)

@@ -32,7 +32,9 @@ module Functor (F : Preface_specs.FUNCTOR) (Env : Preface_specs.Types.T0) :
     {!module-type:Preface_specs.MONOID} , the [Env comonad] is also a
     {!module-type:Preface_specs.APPLICATIVE}. *)
 
-module Applicative (A : Preface_specs.APPLICATIVE) (Env : Preface_specs.MONOID) :
+module Applicative
+    (A : Preface_specs.APPLICATIVE)
+    (Env : Preface_specs.MONOID) :
   Preface_specs.APPLICATIVE with type 'a t = Env.t * 'a A.t
 
 (** {2 Comonad}

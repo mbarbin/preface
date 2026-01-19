@@ -116,4 +116,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/semigroupoids-5.3.6/docs/Data-Functor-Bind.html}
-      Haskell's documentation of Bind} *)
+       Haskell's documentation of Bind} *)

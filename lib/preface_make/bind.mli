@@ -61,8 +61,8 @@ module Via_map_and_kleisli_composition
 
 module Over_functor_via_kleisli_composition
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Bind.WITH_KLEISLI_COMPOSITION
-             with type 'a t = 'a Functor.t) :
+    (Req :
+      Preface_specs.Bind.WITH_KLEISLI_COMPOSITION with type 'a t = 'a Functor.t) :
   Preface_specs.BIND with type 'a t = 'a Req.t
 
 (** {1 Bind Algebra}
@@ -143,8 +143,8 @@ module Core_over_functor_via_bind
 
 module Core_over_functor_via_kleisli_composition
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Bind.WITH_KLEISLI_COMPOSITION
-             with type 'a t = 'a Functor.t) :
+    (Req :
+      Preface_specs.Bind.WITH_KLEISLI_COMPOSITION with type 'a t = 'a Functor.t) :
   Preface_specs.Bind.CORE with type 'a t = 'a Req.t
 
 (** {2 Deriving Operation} *)

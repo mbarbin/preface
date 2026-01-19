@@ -2,7 +2,8 @@
     (which is an arbitrary type). [Traced] is a {e comonad transformer}.
     [Traced] is [Cowriter] (the dual of [Writer]).*)
 
-(** Operation of [Traced] comonad parametrized over an inner comonad and [tape]. *)
+(** Operation of [Traced] comonad parametrized over an inner comonad and [tape].
+*)
 module type CORE = sig
   type tape
   (** The parameter which is a monoid. *)

@@ -41,8 +41,8 @@ module Over_applicative_via_branch
 
 module Over_functor_via_select
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Selective.WITH_PURE_AND_SELECT
-             with type 'a t = 'a Functor.t) :
+    (Req :
+      Preface_specs.Selective.WITH_PURE_AND_SELECT with type 'a t = 'a Functor.t) :
   Preface_specs.SELECTIVE with type 'a t = 'a Req.t
 
 (** {2 Over a Functor using branch}
@@ -56,8 +56,8 @@ module Over_functor_via_select
 
 module Over_functor_via_branch
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Selective.WITH_PURE_AND_BRANCH
-             with type 'a t = 'a Functor.t) :
+    (Req :
+      Preface_specs.Selective.WITH_PURE_AND_BRANCH with type 'a t = 'a Functor.t) :
   Preface_specs.SELECTIVE with type 'a t = 'a Req.t
 
 (** {1 Selective Algebra}
@@ -69,7 +69,9 @@ module Over_functor_via_branch
     Right-to-left composition of {!module-type:Preface_specs.APPLICATIVE} with
     {!module-type:Preface_specs.SELECTIVE}.*)
 
-module Composition (F : Preface_specs.APPLICATIVE) (G : Preface_specs.SELECTIVE) :
+module Composition
+    (F : Preface_specs.APPLICATIVE)
+    (G : Preface_specs.SELECTIVE) :
   Preface_specs.SELECTIVE with type 'a t = 'a G.t F.t
 
 (** {2 Product}
@@ -131,14 +133,14 @@ module Via
 
 module Core_over_functor_via_select
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Selective.WITH_PURE_AND_SELECT
-             with type 'a t = 'a Functor.t) :
+    (Req :
+      Preface_specs.Selective.WITH_PURE_AND_SELECT with type 'a t = 'a Functor.t) :
   Preface_specs.Selective.CORE with type 'a t = 'a Req.t
 
 module Core_over_functor_via_branch
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Selective.WITH_PURE_AND_BRANCH
-             with type 'a t = 'a Functor.t) :
+    (Req :
+      Preface_specs.Selective.WITH_PURE_AND_BRANCH with type 'a t = 'a Functor.t) :
   Preface_specs.Selective.CORE with type 'a t = 'a Req.t
 
 module Core_over_applicative_via_select

@@ -5,7 +5,9 @@
     Build an {!module-type:Preface_specs.STORE} over an {e Inner}
     {!module-type:Preface_specs.COMONAD}. *)
 
-module Over_comonad (C : Preface_specs.COMONAD) (Store : Preface_specs.Types.T0) :
+module Over_comonad
+    (C : Preface_specs.COMONAD)
+    (Store : Preface_specs.Types.T0) :
   Preface_specs.STORE with type store = Store.t and type 'a comonad = 'a C.t
 
 (** {1 Improving API}

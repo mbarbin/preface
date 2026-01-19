@@ -43,12 +43,14 @@ module From_functors_product
     Build a {!module-type:Preface_specs.BIFUNCTOR} using the sum of two
     {!module-type:Preface_specs.FUNCTOR} using the technique described in
     {{:http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf} Data
-    types à la carte by W. Swierstra}.
+     types à la carte by W. Swierstra}.
 
     Standard method, using the minimal definition of an alt to derive its full
     API. *)
 
-module From_functors_sum (F : Preface_specs.FUNCTOR) (G : Preface_specs.FUNCTOR) : sig
+module From_functors_sum
+    (F : Preface_specs.FUNCTOR)
+    (G : Preface_specs.FUNCTOR) : sig
   type ('a, 'b) sum =
     | L of 'a F.t
     | R of 'b G.t
@@ -70,8 +72,9 @@ module Product (F : Preface_specs.BIFUNCTOR) (G : Preface_specs.BIFUNCTOR) :
 (** {2 Sum}
 
     Sum of {!module-type:Preface_specs.BIFUNCTOR} using the technique described
-    in {{:http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf}
-    Data types à la carte by W. Swierstra}.*)
+    in
+    {{:http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf} Data
+     types à la carte by W. Swierstra}.*)
 
 module Sum (F : Preface_specs.BIFUNCTOR) (G : Preface_specs.BIFUNCTOR) : sig
   type ('a, 'b) sum =
@@ -86,7 +89,7 @@ end
     Produces a {!module-type:Preface_specs.BIFUNCTOR} from a
     {!module-type:Preface_specs.FUNCTOR}. (Using
     {{:https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.475.6134&rep=rep1&type=pdf}
-    Clown}) *)
+     Clown}) *)
 
 module From_functor (F : Preface_specs.Functor.CORE) :
   Preface_specs.BIFUNCTOR with type ('a, 'b) t = 'a F.t
@@ -102,8 +105,8 @@ module From_functor (F : Preface_specs.Functor.CORE) :
 
 module Via
     (Core : Preface_specs.Bifunctor.CORE)
-    (Operation : Preface_specs.Bifunctor.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) :
+    (Operation :
+      Preface_specs.Bifunctor.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t) :
   Preface_specs.BIFUNCTOR with type ('a, 'b) t = ('a, 'b) Core.t
 
 (** {2 Building Core} *)

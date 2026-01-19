@@ -83,4 +83,4 @@ end
 (** {1 Additional references}
 
     - {{:https://wiki.haskell.org/Typeclassopedia#Bifunctor} Bifunctor on
-      Typeclassopedia} *)
+       Typeclassopedia} *)

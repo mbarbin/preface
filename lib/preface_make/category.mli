@@ -59,10 +59,10 @@ module From_monad (Monad : Preface_specs.Monad.CORE) :
 
 module Via
     (Core : Preface_specs.Category.CORE)
-    (Operation : Preface_specs.Category.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t)
-    (Infix : Preface_specs.Category.INFIX
-               with type ('a, 'b) t = ('a, 'b) Operation.t) :
+    (Operation :
+      Preface_specs.Category.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t)
+    (Infix :
+      Preface_specs.Category.INFIX with type ('a, 'b) t = ('a, 'b) Operation.t) :
   Preface_specs.CATEGORY with type ('a, 'b) t = ('a, 'b) Infix.t
 
 (** {2 Building Core} *)

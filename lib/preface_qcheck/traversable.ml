@@ -6,7 +6,8 @@ module Suite_applicative
     (RF : Model.COVARIANT_1)
     (F : Preface_specs.APPLICATIVE with type 'a t = 'a RF.t)
     (RG : Model.COVARIANT_1)
-    (G : Preface_specs.APPLICATIVE with type 'a t = 'a RG.t) (NT : sig
+    (G : Preface_specs.APPLICATIVE with type 'a t = 'a RG.t)
+    (NT : sig
       val run : 'a F.t -> 'a G.t
     end)
     (A : Model.T0)

@@ -3,7 +3,9 @@ module type LAWS_APPLICATIVE = sig
 
   val traversable_1 : unit -> ('a t, 'a t) Law.t
 
-  module Compose (F : Preface_specs.APPLICATIVE) (G : Preface_specs.APPLICATIVE) : sig
+  module Compose
+      (F : Preface_specs.APPLICATIVE)
+      (G : Preface_specs.APPLICATIVE) : sig
     module C : Preface_specs.APPLICATIVE with type 'a t = 'a G.t F.t
 
     val traversable_composition_1 :
@@ -12,7 +14,8 @@ module type LAWS_APPLICATIVE = sig
 
   module Naturality
       (F : Preface_specs.APPLICATIVE)
-      (G : Preface_specs.APPLICATIVE) (NT : sig
+      (G : Preface_specs.APPLICATIVE)
+      (NT : sig
         val run : 'a F.t -> 'a G.t
       end) : sig
     val traversable_naturality_1 :
@@ -71,7 +74,8 @@ module For_applicative (T : Preface_specs.Traversable.API_OVER_APPLICATIVE) :
 
   module Naturality
       (F : Preface_specs.APPLICATIVE)
-      (G : Preface_specs.APPLICATIVE) (NT : sig
+      (G : Preface_specs.APPLICATIVE)
+      (NT : sig
         val run : 'a F.t -> 'a G.t
       end) =
   struct

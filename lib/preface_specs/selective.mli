@@ -14,7 +14,7 @@
     + [f <$> select x y) = (select (Bifunctor.map_snd f <$> x) (((%) f) <$> y)]
     + [(select (Bifunctor.map_fst f <$> x) y) = (select x ((%>) f) <$> y))]
     + [(select x (f <$> y)) = (select (Bifunctor.map_fst (flip f) <$> x) ((|>) \
-     <$> y))]
+       <$> y))]
     + [(x <*? pure y) = (Either.case y id <$> x)]
     + [(pure (Right x) <*? y) = pure x]
     + [(pure (Left x) <*? y) = ((|>) x) <$> y]
@@ -120,6 +120,6 @@ end
 (** {1 Additional references}
 
     - {{:http://hackage.haskell.org/package/selective} Haskell's documentation
-      of a Selective Application Functor}
+       of a Selective Application Functor}
     - {{:https://www.staff.ncl.ac.uk/andrey.mokhov/selective-functors.pdf}
-      Selective Applicative Functors} *)
+       Selective Applicative Functors} *)

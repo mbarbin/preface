@@ -60,6 +60,6 @@ end
 (** {1 Additional references}
 
     - {{:https://wiki.haskell.org/Foldable_and_Traversable} Haskell's wiki of
-      Foldable and Traversable}
+       Foldable and Traversable}
     - {{:https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html}
-      Haskell's documentation of Foldable} *)
+       Haskell's documentation of Foldable} *)

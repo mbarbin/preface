@@ -19,7 +19,8 @@
 
 (** {1 Minimal definition} *)
 
-(** Exposes the [lose] and [choose] functions, mandatory for each requirement. *)
+(** Exposes the [lose] and [choose] functions, mandatory for each requirement.
+*)
 module type WITH_LOSE_AND_CHOOSE = sig
   type 'a t
   (** The type held by the [Decidable]. *)
@@ -100,4 +101,4 @@ end
 (** {1 Additional references}
 
     - {{:https://typeclasses.com/contravariance}
-      https://typeclasses.com/contravariance} *)
+       https://typeclasses.com/contravariance} *)

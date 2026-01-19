@@ -3,8 +3,9 @@ let extract = function Either.Left x | Either.Right x -> x
 module Choose_over_left
     (Category : Preface_specs.Category.CORE)
     (Arrow : Preface_specs.Arrow.CORE with type ('a, 'b) t = ('a, 'b) Category.t)
-    (Left : Preface_specs.Arrow_choice.WITH_LEFT
-              with type ('a, 'b) t = ('a, 'b) Arrow.t) =
+    (Left :
+      Preface_specs.Arrow_choice.WITH_LEFT
+        with type ('a, 'b) t = ('a, 'b) Arrow.t) =
 struct
   let choose f g =
     let ( >>> ) f g = Category.compose g f in
@@ -17,16 +18,18 @@ end
 
 module Left_over_choose
     (Category : Preface_specs.Category.CORE)
-    (Choose : Preface_specs.Arrow_choice.WITH_CHOOSE
-                with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Choose :
+      Preface_specs.Arrow_choice.WITH_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   let left x = Choose.choose x Category.id
 end
 
 module Core_over_category_and_via_arrow_and_fst_and_left
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_LEFT
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_LEFT
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module C = Arrow.Core_over_category_and_via_arrow_and_fst (Category) (Req)
   include C
@@ -38,8 +41,9 @@ end
 
 module Core_over_category_and_via_arrow_and_split_and_left
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_LEFT
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_LEFT
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module C = Arrow.Core_over_category_and_via_arrow_and_split (Category) (Req)
   include C
@@ -51,8 +55,9 @@ end
 
 module Core_over_category_and_via_arrow_and_fst_and_choose
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_CHOOSE
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   include Arrow.Core_over_category_and_via_arrow_and_fst (Category) (Req)
 
@@ -63,8 +68,9 @@ end
 
 module Core_over_category_and_via_arrow_and_split_and_choose
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_CHOOSE
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   include Arrow.Core_over_category_and_via_arrow_and_split (Category) (Req)
 
@@ -75,8 +81,8 @@ end
 
 module Operation_over_category
     (Category : Preface_specs.Category.OPERATION)
-    (Core : Preface_specs.Arrow_choice.CORE
-              with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Core :
+      Preface_specs.Arrow_choice.CORE with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   include Arrow.Operation_over_category (Category) (Core)
 
@@ -88,10 +94,11 @@ module Alias = Arrow.Alias
 
 module Infix_over_category
     (Category : Preface_specs.Category.INFIX)
-    (Core : Preface_specs.Arrow_choice.CORE
-              with type ('a, 'b) t = ('a, 'b) Category.t)
-    (Operation : Preface_specs.Arrow_choice.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) =
+    (Core :
+      Preface_specs.Arrow_choice.CORE with type ('a, 'b) t = ('a, 'b) Category.t)
+    (Operation :
+      Preface_specs.Arrow_choice.OPERATION
+        with type ('a, 'b) t = ('a, 'b) Core.t) =
 struct
   include Arrow.Infix_over_category (Category) (Core) (Operation)
 
@@ -114,8 +121,9 @@ end
 
 module Over_category_and_via_arrow_and_fst_and_left
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_LEFT
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_LEFT
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module Core =
     Core_over_category_and_via_arrow_and_fst_and_left (Category) (Req)
@@ -141,8 +149,9 @@ end
 
 module Over_over_category_and_via_arrow_and_split_and_left
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_LEFT
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_LEFT
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module Core =
     Core_over_category_and_via_arrow_and_split_and_left (Category) (Req)
@@ -168,8 +177,9 @@ end
 
 module Over_category_and_via_arrow_and_fst_and_choose
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_CHOOSE
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_FST_AND_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module Core =
     Core_over_category_and_via_arrow_and_fst_and_choose (Category) (Req)
@@ -195,8 +205,9 @@ end
 
 module Over_category_and_via_arrow_and_split_and_choose
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_CHOOSE
-             with type ('a, 'b) t = ('a, 'b) Category.t) =
+    (Req :
+      Preface_specs.Arrow_choice.WITH_ARROW_AND_SPLIT_AND_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Category.t) =
 struct
   module Core =
     Core_over_category_and_via_arrow_and_split_and_choose (Category) (Req)
@@ -212,8 +223,9 @@ end
 
 module Over_arrow_with_left
     (Arrow : Preface_specs.ARROW)
-    (Left : Preface_specs.Arrow_choice.WITH_LEFT
-              with type ('a, 'b) t = ('a, 'b) Arrow.t) =
+    (Left :
+      Preface_specs.Arrow_choice.WITH_LEFT
+        with type ('a, 'b) t = ('a, 'b) Arrow.t) =
 struct
   module Core_aux =
     Core_over_category_and_via_arrow_and_fst_and_left
@@ -239,8 +251,9 @@ end
 
 module Over_arrow_with_choose
     (Arrow : Preface_specs.ARROW)
-    (Choose : Preface_specs.Arrow_choice.WITH_CHOOSE
-                with type ('a, 'b) t = ('a, 'b) Arrow.t) =
+    (Choose :
+      Preface_specs.Arrow_choice.WITH_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Arrow.t) =
 struct
   module Core_aux =
     Core_over_category_and_via_arrow_and_fst_and_choose
@@ -266,8 +279,9 @@ end
 
 module Over_arrow_with_left_and_choose
     (Arrow : Preface_specs.ARROW)
-    (Choose_left : Preface_specs.Arrow_choice.WITH_LEFT_AND_CHOOSE
-                     with type ('a, 'b) t = ('a, 'b) Arrow.t) =
+    (Choose_left :
+      Preface_specs.Arrow_choice.WITH_LEFT_AND_CHOOSE
+        with type ('a, 'b) t = ('a, 'b) Arrow.t) =
 struct
   module Core_aux = struct
     include Arrow

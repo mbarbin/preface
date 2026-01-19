@@ -31,7 +31,9 @@ module Functor (F : Preface_specs.FUNCTOR) (Tape : Preface_specs.MONOID) :
     {!module-type:Preface_specs.APPLICATIVE}, the [Writer monad] is also an
     {!module-type:Preface_specs.APPLICATIVE}. *)
 
-module Applicative (A : Preface_specs.APPLICATIVE) (Tape : Preface_specs.MONOID) :
+module Applicative
+    (A : Preface_specs.APPLICATIVE)
+    (Tape : Preface_specs.MONOID) :
   Preface_specs.APPLICATIVE with type 'a t = ('a * Tape.t) A.t
 
 (** {2 Alternative}
@@ -40,7 +42,9 @@ module Applicative (A : Preface_specs.APPLICATIVE) (Tape : Preface_specs.MONOID)
     {!module-type:Preface_specs.ALTERNATIVE}, the [Writer monad] is also an
     {!module-type:Preface_specs.ALTERNATIVE}. *)
 
-module Alternative (A : Preface_specs.ALTERNATIVE) (Tape : Preface_specs.MONOID) :
+module Alternative
+    (A : Preface_specs.ALTERNATIVE)
+    (Tape : Preface_specs.MONOID) :
   Preface_specs.ALTERNATIVE with type 'a t = ('a * Tape.t) A.t
 
 (** {2 Monad}

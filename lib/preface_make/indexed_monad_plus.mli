@@ -45,8 +45,9 @@ module Via_kleisli_composition
 
 module Over_monad_and_alternative
     (Monad : Preface_specs.INDEXED_MONAD)
-    (Alternative : Preface_specs.INDEXED_ALTERNATIVE
-                     with type ('a, 'index) t = ('a, 'index) Monad.t) :
+    (Alternative :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) Monad.t) :
   Preface_specs.INDEXED_MONAD_PLUS
     with type ('a, 'index) t = ('a, 'index) Alternative.t
 
@@ -58,8 +59,9 @@ module Over_monad_and_alternative
 
 module Over_monad
     (Monad : Preface_specs.INDEXED_MONAD)
-    (Req : Preface_specs.Indexed_monad_plus.WITH_NEUTRAL_AND_COMBINE
-             with type ('a, 'index) t = ('a, 'index) Monad.t) :
+    (Req :
+      Preface_specs.Indexed_monad_plus.WITH_NEUTRAL_AND_COMBINE
+        with type ('a, 'index) t = ('a, 'index) Monad.t) :
   Preface_specs.INDEXED_MONAD_PLUS with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {1 Manual construction}
@@ -73,12 +75,15 @@ module Over_monad
 
 module Via
     (Core : Preface_specs.Indexed_monad_plus.CORE)
-    (Operation : Preface_specs.Indexed_monad_plus.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_monad_plus.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_monad_plus.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_monad_plus.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_monad_plus.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_monad_plus.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_MONAD_PLUS
     with type ('a, 'index) t = ('a, 'index) Core.t
 
@@ -114,7 +119,8 @@ module Syntax (Core : Preface_specs.Indexed_monad_plus.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_monad_plus.CORE)
-    (Operation : Preface_specs.Indexed_monad_plus.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_monad_plus.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_monad_plus.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t

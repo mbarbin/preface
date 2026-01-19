@@ -3,7 +3,8 @@
 (** {2 Using join_semilattice and meet_semilattice}
 
     Build a {!module-type:Preface_specs.LATTICE} using
-    {!module-type:Preface_specs.LATTICE.WITH_JOIN_SEMILATTICE_AND_MEET_SEMILATTICE}. *)
+    {!module-type:Preface_specs.LATTICE.WITH_JOIN_SEMILATTICE_AND_MEET_SEMILATTICE}.
+*)
 
 module Via_join_and_meet (Req : Preface_specs.Lattice.WITH_JOIN_AND_MEET) :
   Preface_specs.LATTICE with type t = Req.t

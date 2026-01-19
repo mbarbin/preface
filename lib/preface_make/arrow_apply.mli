@@ -13,8 +13,9 @@
 
 module Over_arrow
     (Arrow : Preface_specs.ARROW)
-    (Apply : Preface_specs.Arrow_apply.WITH_APPLY
-               with type ('a, 'b) t = ('a, 'b) Arrow.t) :
+    (Apply :
+      Preface_specs.Arrow_apply.WITH_APPLY
+        with type ('a, 'b) t = ('a, 'b) Arrow.t) :
   Preface_specs.ARROW_APPLY with type ('a, 'b) t = ('a, 'b) Apply.t
 
 (** {2 Using apply, arrow and fst over a Category}
@@ -28,8 +29,9 @@ module Over_arrow
 
 module Over_category_and_via_arrow_and_fst
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.ARROW_APPLY with type ('a, 'b) t = ('a, 'b) Req.t
 
 (** {2 Using apply, arrow and split over a Category}
@@ -43,8 +45,9 @@ module Over_category_and_via_arrow_and_fst
 
 module Over_category_and_via_arrow_and_split
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.ARROW_APPLY with type ('a, 'b) t = ('a, 'b) Req.t
 
 (** {1 From other abstraction} *)
@@ -68,34 +71,37 @@ module From_monad (Monad : Preface_specs.Monad.CORE) :
 
 module Via
     (Core : Preface_specs.Arrow_apply.CORE)
-    (Operation : Preface_specs.Arrow_apply.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t)
-    (Alias : Preface_specs.Arrow_apply.ALIAS
-               with type ('a, 'b) t = ('a, 'b) Operation.t)
-    (Infix : Preface_specs.Arrow_apply.INFIX
-               with type ('a, 'b) t = ('a, 'b) Alias.t) :
+    (Operation :
+      Preface_specs.Arrow_apply.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t)
+    (Alias :
+      Preface_specs.Arrow_apply.ALIAS
+        with type ('a, 'b) t = ('a, 'b) Operation.t)
+    (Infix :
+      Preface_specs.Arrow_apply.INFIX with type ('a, 'b) t = ('a, 'b) Alias.t) :
   Preface_specs.ARROW_APPLY with type ('a, 'b) t = ('a, 'b) Infix.t
 
 (** {2 Building Core} *)
 
 module Core_over_category_and_via_arrow_and_fst
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_FST
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.Arrow_apply.CORE with type ('a, 'b) t = ('a, 'b) Req.t
 
 module Core_over_category_and_via_arrow_and_split
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow_apply.WITH_ARROW_AND_SPLIT
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.Arrow_apply.CORE with type ('a, 'b) t = ('a, 'b) Req.t
 
 (** {2 Deriving Operation} *)
 
 module Operation_over_category
     (Category : Preface_specs.Category.OPERATION)
-    (Core : Preface_specs.Arrow_apply.CORE
-              with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Core :
+      Preface_specs.Arrow_apply.CORE with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.Arrow_apply.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t
 
 (** {2 Deriving Alias} *)
@@ -107,8 +113,8 @@ module Alias (Operation : Preface_specs.Arrow_apply.OPERATION) :
 
 module Infix_over_category
     (Category : Preface_specs.Category.INFIX)
-    (Core : Preface_specs.Arrow_apply.CORE
-              with type ('a, 'b) t = ('a, 'b) Category.t)
-    (Operation : Preface_specs.Arrow_apply.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) :
+    (Core :
+      Preface_specs.Arrow_apply.CORE with type ('a, 'b) t = ('a, 'b) Category.t)
+    (Operation :
+      Preface_specs.Arrow_apply.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t) :
   Preface_specs.Arrow_apply.INFIX with type ('a, 'b) t = ('a, 'b) Operation.t

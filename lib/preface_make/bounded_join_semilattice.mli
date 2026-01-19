@@ -4,12 +4,14 @@
 
     Build a {!module-type:Preface_specs.BOUNDED_JOIN_SEMILATTICE} using
     {!module-type:Preface_specs.Bounded_join_semilattice.WITH_JOIN}. Standard
-    method, using the minimal definition of a semigroup to derive its full API. *)
+    method, using the minimal definition of a semigroup to derive its full API.
+*)
 
 (** {2 Using join and bottom}
 
     Build a {!module-type:Preface_specs.BOUNDED_JOIN_SEMILATTICE} using
-    {!module-type:Preface_specs.BOUNDED_JOIN_SEMILATTICE.WITH_JOIN_AND_BOTTOM}. *)
+    {!module-type:Preface_specs.BOUNDED_JOIN_SEMILATTICE.WITH_JOIN_AND_BOTTOM}.
+*)
 
 module Via_join_and_bottom
     (Req : Preface_specs.Bounded_join_semilattice.WITH_JOIN_AND_BOTTOM) :
@@ -22,8 +24,9 @@ module Via_join_and_bottom
 
 module Over_join_semilattice_and_via_bottom
     (Join_req : Preface_specs.Join_semilattice.CORE)
-    (Req : Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
-             with type t = Join_req.t) :
+    (Req :
+      Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
+        with type t = Join_req.t) :
   Preface_specs.BOUNDED_JOIN_SEMILATTICE with type t = Req.t
 
 (** {1 Manual construction}
@@ -49,8 +52,9 @@ module Core_via_join_and_bottom
 
 module Core_over_join_semilattice_and_via_bottom
     (Join_req : Preface_specs.Join_semilattice.CORE)
-    (Req : Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
-             with type t = Join_req.t) :
+    (Req :
+      Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
+        with type t = Join_req.t) :
   Preface_specs.Bounded_join_semilattice.CORE with type t = Req.t
 
 (** {2 Deriving Infix} *)

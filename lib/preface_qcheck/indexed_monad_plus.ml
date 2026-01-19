@@ -2,8 +2,9 @@ open QCheck2
 
 module Suite_monoidal_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (Index : Model.T0) =
@@ -56,8 +57,9 @@ end
 
 module Suite_left_absorption_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (Index : Model.T0) =
@@ -80,8 +82,9 @@ end
 
 module Suite_left_distributivity_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (Index : Model.T0) =
@@ -111,8 +114,9 @@ end
 
 module Suite_left_catch_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (Index : Model.T0) =
 struct
@@ -137,8 +141,9 @@ end
 
 module Suite_monoidal
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -153,8 +158,9 @@ end
 
 module Suite_left_absorption
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -169,8 +175,9 @@ end
 
 module Suite_left_distributivity
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -185,8 +192,9 @@ end
 
 module Suite_left_catch
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -201,8 +209,9 @@ end
 
 module Suite
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_MONAD_PLUS
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_MONAD_PLUS
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)

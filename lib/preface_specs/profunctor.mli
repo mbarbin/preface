@@ -63,4 +63,4 @@ module type API = CORE
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/profunctors-5.6.2/docs/Data-Profunctor.html}
-      Haskell's documentation of Profunctor} *)
+       Haskell's documentation of Profunctor} *)

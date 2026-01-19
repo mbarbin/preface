@@ -236,8 +236,8 @@ end
 
 module Over_functor_via_kleisli_composition
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Bind.WITH_KLEISLI_COMPOSITION
-             with type 'a t = 'a Functor.t) =
+    (Req :
+      Preface_specs.Bind.WITH_KLEISLI_COMPOSITION with type 'a t = 'a Functor.t) =
 struct
   type 'a t = 'a Req.t
 

@@ -13,13 +13,16 @@ module Via_compose (Req : Preface_specs.Semigroupoid.WITH_COMPOSE) :
 
 (** {1 Semigroupoid Algebra}
 
-    Construction of {!module-type:Preface_specs.SEMIGROUPOID} by combining them. *)
+    Construction of {!module-type:Preface_specs.SEMIGROUPOID} by combining them.
+*)
 
 (** {2 Product}
 
     Construct the product of two {!module-type:Preface_specs.SEMIGROUPOID}. *)
 
-module Product (F : Preface_specs.SEMIGROUPOID) (G : Preface_specs.SEMIGROUPOID) :
+module Product
+    (F : Preface_specs.SEMIGROUPOID)
+    (G : Preface_specs.SEMIGROUPOID) :
   Preface_specs.SEMIGROUPOID with type ('a, 'b) t = ('a, 'b) F.t * ('a, 'b) G.t
 
 (** {1 From other abstraction} *)
@@ -43,10 +46,12 @@ module From_monad (Monad : Preface_specs.Monad.CORE) :
 
 module Via
     (Core : Preface_specs.Semigroupoid.CORE)
-    (Operation : Preface_specs.Semigroupoid.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t)
-    (Infix : Preface_specs.Semigroupoid.INFIX
-               with type ('a, 'b) t = ('a, 'b) Operation.t) :
+    (Operation :
+      Preface_specs.Semigroupoid.OPERATION
+        with type ('a, 'b) t = ('a, 'b) Core.t)
+    (Infix :
+      Preface_specs.Semigroupoid.INFIX
+        with type ('a, 'b) t = ('a, 'b) Operation.t) :
   Preface_specs.SEMIGROUPOID with type ('a, 'b) t = ('a, 'b) Infix.t
 
 (** {2 Building Core} *)

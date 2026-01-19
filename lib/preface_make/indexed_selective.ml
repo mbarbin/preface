@@ -2,8 +2,9 @@ open Preface_core.Fun
 
 module Branch_via_select
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_SELECT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_SELECT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   let branch s l r =
     let a = Functor.map Either.(map_right left) s
@@ -20,8 +21,9 @@ end
 
 module Core_over_functor_via_select
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Functor
   include Req
@@ -39,8 +41,9 @@ end
 
 module Core_over_functor_via_branch
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Functor
   include Req
@@ -58,8 +61,9 @@ end
 
 module Core_over_applicative_via_select
     (Applicative : Preface_specs.Indexed_applicative.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_SELECT
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_SELECT
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) =
 struct
   include Applicative
   include Req
@@ -68,8 +72,9 @@ end
 
 module Core_over_applicative_via_branch
     (Applicative : Preface_specs.Indexed_applicative.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) =
 struct
   include Applicative
   include Req
@@ -117,8 +122,9 @@ end
 
 module Infix
     (Core : Preface_specs.Indexed_selective.CORE)
-    (Operation : Preface_specs.Indexed_selective.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_selective.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_applicative.Infix (Core) (Operation)
 
@@ -146,8 +152,9 @@ end
 
 module Over_functor_via_select
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_select (Functor) (Req)
   module Operation = Operation (Core)
@@ -161,8 +168,9 @@ end
 
 module Over_functor_via_branch
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_branch (Functor) (Req)
   module Operation = Operation (Core)
@@ -176,8 +184,9 @@ end
 
 module Over_applicative_via_select
     (Applicative : Preface_specs.INDEXED_APPLICATIVE)
-    (Req : Preface_specs.Indexed_selective.WITH_SELECT
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_SELECT
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) =
 struct
   module Core = Core_over_applicative_via_select (Applicative) (Req)
   module Operation = Operation (Core)
@@ -191,8 +200,9 @@ end
 
 module Over_applicative_via_branch
     (Applicative : Preface_specs.INDEXED_APPLICATIVE)
-    (Req : Preface_specs.Indexed_selective.WITH_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) =
+    (Req :
+      Preface_specs.Indexed_selective.WITH_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) =
 struct
   module Core = Core_over_applicative_via_branch (Applicative) (Req)
   module Operation = Operation (Core)
@@ -212,8 +222,7 @@ module Select_from_monad (Monad : Preface_specs.Indexed_monad.CORE) = struct
   let select xs fs =
     Monad.bind
       (fun x ->
-        Either.fold ~left:(fun a -> Monad.map (fun f -> f a) fs) ~right:pure x
-        )
+        Either.fold ~left:(fun a -> Monad.map (fun f -> f a) fs) ~right:pure x )
       xs
   ;;
 end

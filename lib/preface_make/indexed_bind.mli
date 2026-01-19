@@ -24,8 +24,9 @@ module Via_map_and_bind (Req : Preface_specs.Indexed_bind.WITH_MAP_AND_BIND) :
 
 module Over_functor_via_bind
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_BIND
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_bind.WITH_BIND
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_BIND with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Using return, map and join}
@@ -62,8 +63,9 @@ module Via_map_and_kleisli_composition
 
 module Over_functor_via_kleisli_composition
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_BIND with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {1 Manual construction}
@@ -77,12 +79,15 @@ module Over_functor_via_kleisli_composition
 
 module Via
     (Core : Preface_specs.Indexed_bind.CORE)
-    (Operation : Preface_specs.Indexed_bind.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_bind.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_bind.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_bind.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_bind.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_bind.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_BIND with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Building Core} *)
@@ -101,14 +106,16 @@ module Core_via_map_and_kleisli_composition
 
 module Core_over_functor_via_bind
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_BIND
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_bind.WITH_BIND
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_bind.CORE with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core_over_functor_via_kleisli_composition
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_bind.WITH_KLEISLI_COMPOSITION
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_bind.CORE with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Deriving Operation} *)
@@ -127,7 +134,8 @@ module Syntax (Core : Preface_specs.Indexed_bind.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_bind.CORE)
-    (Operation : Preface_specs.Indexed_bind.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_bind.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_bind.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t

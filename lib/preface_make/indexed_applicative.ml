@@ -45,8 +45,9 @@ end
 
 module Infix
     (Core : Preface_specs.Indexed_applicative.CORE)
-    (Operation : Preface_specs.Indexed_applicative.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_applicative.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_apply.Infix (Core) (Operation)
 
@@ -111,8 +112,9 @@ end
 
 module Over_apply
     (Apply : Preface_specs.INDEXED_APPLY)
-    (Req : Preface_specs.Indexed_applicative.WITH_PURE
-             with type ('a, 'index) t = ('a, 'index) Apply.t) =
+    (Req :
+      Preface_specs.Indexed_applicative.WITH_PURE
+        with type ('a, 'index) t = ('a, 'index) Apply.t) =
 struct
   include Via_pure_and_apply (struct
     type ('a, 'index) t = ('a, 'index) Apply.t

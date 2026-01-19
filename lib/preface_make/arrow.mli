@@ -13,8 +13,9 @@
 
 module Over_category_and_via_arrow_and_fst
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow.WITH_ARROW_AND_FST
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow.WITH_ARROW_AND_FST
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.ARROW with type ('a, 'b) t = ('a, 'b) Req.t
 
 (** {2 Using arrow and split over a Category}
@@ -28,8 +29,9 @@ module Over_category_and_via_arrow_and_fst
 
 module Over_category_and_via_arrow_and_split
     (Category : Preface_specs.CATEGORY)
-    (Req : Preface_specs.Arrow.WITH_ARROW_AND_SPLIT
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow.WITH_ARROW_AND_SPLIT
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.ARROW with type ('a, 'b) t = ('a, 'b) Req.t
 
 (** {1 Arrow Algebra}
@@ -52,8 +54,9 @@ module Product (F : Preface_specs.ARROW) (G : Preface_specs.ARROW) :
     {!module-type:Preface_specs.CATEGORY}.
 
     One way of looking at Arrow would be to see them as the conjunction of
-    Category and Strong, as mentioned in {{:https://arxiv.org/pdf/1406.4823.pdf}
-    Notions of Computation as Monoids} by E. Rivas and M. Jaskelioff. *)
+    Category and Strong, as mentioned in
+    {{:https://arxiv.org/pdf/1406.4823.pdf} Notions of Computation as Monoids}
+    by E. Rivas and M. Jaskelioff. *)
 
 module From_strong_and_category
     (Strong : Preface_specs.Strong.WITH_DIMAP_AND_FST)
@@ -119,10 +122,10 @@ module From_arrow_apply (Apply : Preface_specs.ARROW_APPLY) :
 
 module Via
     (Core : Preface_specs.Arrow.CORE)
-    (Operation : Preface_specs.Arrow.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t)
-    (Alias : Preface_specs.Arrow.ALIAS
-               with type ('a, 'b) t = ('a, 'b) Operation.t)
+    (Operation :
+      Preface_specs.Arrow.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t)
+    (Alias :
+      Preface_specs.Arrow.ALIAS with type ('a, 'b) t = ('a, 'b) Operation.t)
     (Infix : Preface_specs.Arrow.INFIX with type ('a, 'b) t = ('a, 'b) Alias.t) :
   Preface_specs.ARROW with type ('a, 'b) t = ('a, 'b) Infix.t
 
@@ -130,14 +133,16 @@ module Via
 
 module Core_over_category_and_via_arrow_and_fst
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow.WITH_ARROW_AND_FST
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow.WITH_ARROW_AND_FST
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.Arrow.CORE with type ('a, 'b) t = ('a, 'b) Req.t
 
 module Core_over_category_and_via_arrow_and_split
     (Category : Preface_specs.Category.CORE)
-    (Req : Preface_specs.Arrow.WITH_ARROW_AND_SPLIT
-             with type ('a, 'b) t = ('a, 'b) Category.t) :
+    (Req :
+      Preface_specs.Arrow.WITH_ARROW_AND_SPLIT
+        with type ('a, 'b) t = ('a, 'b) Category.t) :
   Preface_specs.Arrow.CORE with type ('a, 'b) t = ('a, 'b) Req.t
 
 (** {2 Deriving Operation} *)
@@ -157,6 +162,6 @@ module Alias (Operation : Preface_specs.Arrow.OPERATION) :
 module Infix_over_category
     (Category : Preface_specs.Category.INFIX)
     (Core : Preface_specs.Arrow.CORE with type ('a, 'b) t = ('a, 'b) Category.t)
-    (Operation : Preface_specs.Arrow.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) :
+    (Operation :
+      Preface_specs.Arrow.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t) :
   Preface_specs.Arrow.INFIX with type ('a, 'b) t = ('a, 'b) Operation.t

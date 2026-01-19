@@ -2,8 +2,9 @@ open QCheck2
 
 module Suite_monoidal_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (Index : Model.T0) =
@@ -58,8 +59,9 @@ end
 
 module Suite_right_distributivity_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (Index : Model.T0) =
@@ -89,8 +91,9 @@ end
 
 module Suite_right_absorbtion_aux
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (Index : Model.T0) =
@@ -114,8 +117,9 @@ end
 
 module Suite_monoidal
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -129,8 +133,9 @@ end
 
 module Suite_right_distributivity
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -144,8 +149,9 @@ end
 
 module Suite_right_absorbtion
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -159,8 +165,9 @@ end
 
 module Suite
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_ALTERNATIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_ALTERNATIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)

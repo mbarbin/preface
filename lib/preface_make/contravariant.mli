@@ -21,7 +21,9 @@ module Via_contramap (Req : Preface_specs.Contravariant.WITH_CONTRAMAP) :
     Construction of {!module-type:Preface_specs.CONTRAVARIANT} by left-to-right
     composition with {!module-type:Preface_specs.FUNCTOR}. *)
 
-module Composition (F : Preface_specs.FUNCTOR) (G : Preface_specs.CONTRAVARIANT) :
+module Composition
+    (F : Preface_specs.FUNCTOR)
+    (G : Preface_specs.CONTRAVARIANT) :
   Preface_specs.CONTRAVARIANT with type 'a t = 'a G.t F.t
 
 (** {1 Manual construction}
@@ -35,8 +37,8 @@ module Composition (F : Preface_specs.FUNCTOR) (G : Preface_specs.CONTRAVARIANT)
 
 module Via
     (Core : Preface_specs.Contravariant.CORE)
-    (Operation : Preface_specs.Contravariant.OPERATION
-                   with type 'a t = 'a Core.t)
+    (Operation :
+      Preface_specs.Contravariant.OPERATION with type 'a t = 'a Core.t)
     (Infix : Preface_specs.Contravariant.INFIX with type 'a t = 'a Operation.t) :
   Preface_specs.CONTRAVARIANT with type 'a t = 'a Infix.t
 
@@ -54,6 +56,6 @@ module Operation (Core : Preface_specs.Contravariant.CORE) :
 
 module Infix
     (Core : Preface_specs.Contravariant.CORE)
-    (Operation : Preface_specs.Contravariant.OPERATION
-                   with type 'a t = 'a Core.t) :
+    (Operation :
+      Preface_specs.Contravariant.OPERATION with type 'a t = 'a Core.t) :
   Preface_specs.Contravariant.INFIX with type 'a t = 'a Operation.t

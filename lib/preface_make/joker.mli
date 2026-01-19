@@ -1,7 +1,7 @@
 (** [Joker] can produces [Bifunctor] or [Profunctor] using a [Functor] on the
     second argument of the [Bi/Profunctor] as described in
     {{:https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.475.6134&rep=rep1&type=pdf}
-    Clowns to the Left, Jokers to the Right (Functional Pearl)}*)
+     Clowns to the Left, Jokers to the Right (Functional Pearl)}*)
 
 (** {2 Bifunctor}
 

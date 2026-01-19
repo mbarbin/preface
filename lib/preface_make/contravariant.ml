@@ -9,8 +9,8 @@ end
 
 module Infix
     (Core : Preface_specs.Contravariant.CORE)
-    (Operation : Preface_specs.Contravariant.OPERATION
-                   with type 'a t = 'a Core.t) =
+    (Operation :
+      Preface_specs.Contravariant.OPERATION with type 'a t = 'a Core.t) =
 struct
   type 'a t = 'a Core.t
 

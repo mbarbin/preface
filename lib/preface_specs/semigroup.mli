@@ -73,4 +73,4 @@ end
 (** {1 Additional references}
 
     - {{:http://hackage.haskell.org/package/base-4.14.0.0/docs/Data-Semigroup.html}
-      Haskell's documentation of a Semigroup} *)
+       Haskell's documentation of a Semigroup} *)

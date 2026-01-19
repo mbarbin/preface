@@ -38,8 +38,9 @@ module Syntax (Core : Preface_specs.Indexed_alternative.CORE) =
 
 module Infix
     (Core : Preface_specs.Indexed_alternative.CORE)
-    (Operation : Preface_specs.Indexed_alternative.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_alternative.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_applicative.Infix (Core) (Operation)
   include Indexed_alt.Infix (Core) (Operation)
@@ -100,8 +101,9 @@ end
 
 module Over_applicative
     (Applicative : Preface_specs.INDEXED_APPLICATIVE)
-    (Req : Preface_specs.Indexed_alternative.WITH_NEUTRAL_AND_COMBINE
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) =
+    (Req :
+      Preface_specs.Indexed_alternative.WITH_NEUTRAL_AND_COMBINE
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) =
   Via
     (struct
       include Applicative

@@ -55,13 +55,15 @@ module Over_monad_and_alternative
 
 module Over_monad
     (Monad : Preface_specs.MONAD)
-    (Req : Preface_specs.Monad_plus.WITH_NEUTRAL_AND_COMBINE
-             with type 'a t = 'a Monad.t) :
+    (Req :
+      Preface_specs.Monad_plus.WITH_NEUTRAL_AND_COMBINE
+        with type 'a t = 'a Monad.t) :
   Preface_specs.MONAD_PLUS with type 'a t = 'a Req.t
 
 (** {1 Monad plus Algebra}
 
-    Construction of {!module-type:Preface_specs.MONAD_PLUS} by combining them. *)
+    Construction of {!module-type:Preface_specs.MONAD_PLUS} by combining them.
+*)
 
 (** {2 Product}
 
@@ -111,7 +113,8 @@ module Via
 module Core_via_bind (Req : Preface_specs.Monad_plus.WITH_BIND) :
   Preface_specs.Monad_plus.CORE with type 'a t = 'a Req.t
 
-module Core_via_map_and_join (Req : Preface_specs.Monad_plus.WITH_MAP_AND_JOIN) :
+module Core_via_map_and_join
+    (Req : Preface_specs.Monad_plus.WITH_MAP_AND_JOIN) :
   Preface_specs.Monad_plus.CORE with type 'a t = 'a Req.t
 
 module Core_via_kleisli_composition

@@ -20,8 +20,8 @@ end
 
 module Via
     (Core : Preface_specs.Closed.CORE)
-    (Operation : Preface_specs.Closed.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) =
+    (Operation :
+      Preface_specs.Closed.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t) =
 struct
   include Core
   include Operation

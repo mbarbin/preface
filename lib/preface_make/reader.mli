@@ -63,7 +63,9 @@ module Monad (M : Preface_specs.MONAD) (Env : Preface_specs.Types.T0) :
     {!module-type:Preface_specs.MONAD_PLUS}, the [Reader monad] is also a
     {!module-type:Preface_specs.MONAD_PLUS}. *)
 
-module Monad_plus (M : Preface_specs.MONAD_PLUS) (Env : Preface_specs.Types.T0) :
+module Monad_plus
+    (M : Preface_specs.MONAD_PLUS)
+    (Env : Preface_specs.Types.T0) :
   Preface_specs.MONAD_PLUS with type 'a t = Env.t -> 'a M.t
 
 (** {1 Manual construction}

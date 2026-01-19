@@ -96,8 +96,8 @@ let validation_formlet_invalid2 () =
   let expected =
     invalid
       (let open Formlet in
-      let open Nel in
-      Invalid_name ("firstname", "") :: create (Invalid_name ("lastname", "-"))
+       let open Nel in
+       Invalid_name ("firstname", "") :: create (Invalid_name ("lastname", "-"))
       )
   and computed =
     let open Applicative.Infix in
@@ -133,11 +133,11 @@ let validation_formlet_invalid4 () =
   let expected =
     invalid
       (let open Formlet in
-      let open Nel in
-      Invalid_age (-5)
-      :: Invalid_name ("firstname", "")
-      :: Invalid_name ("lastname", "-")
-      :: create Unchecked_rules )
+       let open Nel in
+       Invalid_age (-5)
+       :: Invalid_name ("firstname", "")
+       :: Invalid_name ("lastname", "-")
+       :: create Unchecked_rules )
   and computed =
     let open Applicative.Infix in
     let open Formlet in

@@ -20,7 +20,8 @@ module Bifunctor : Preface_specs.BIFUNCTOR with type ('a, 'b) t = ('a, 'b) t
 (** {2 Delayed implementation}
 
     By setting the [error] type of [Validation.t] it is possible to get
-    implementations for abstractions on constructors of type with an arity of 1. *)
+    implementations for abstractions on constructors of type with an arity of 1.
+*)
 
 (** {3 Functor} *)
 

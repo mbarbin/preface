@@ -1,7 +1,7 @@
 module Core_over_functor_via_select
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Selective.WITH_PURE_AND_SELECT
-             with type 'a t = 'a Functor.t) =
+    (Req :
+      Preface_specs.Selective.WITH_PURE_AND_SELECT with type 'a t = 'a Functor.t) =
 struct
   type 'a t = 'a Req.t
 
@@ -27,8 +27,8 @@ end
 
 module Core_over_functor_via_branch
     (Functor : Preface_specs.Functor.WITH_MAP)
-    (Req : Preface_specs.Selective.WITH_PURE_AND_BRANCH
-             with type 'a t = 'a Functor.t) =
+    (Req :
+      Preface_specs.Selective.WITH_PURE_AND_BRANCH with type 'a t = 'a Functor.t) =
 struct
   type 'a t = 'a Req.t
 

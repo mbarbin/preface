@@ -32,5 +32,5 @@ module type API = CORE
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/invariant} Haskell's documentation
-      of Invariant Functor}
+       of Invariant Functor}
     - {{:http://comonad.com/reader/2008/rotten-bananas/} Rotten Bananas} *)

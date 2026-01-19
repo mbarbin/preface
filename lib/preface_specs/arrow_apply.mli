@@ -88,8 +88,8 @@ end
 (** {1 Additional references}
 
     - {{:http://www.cse.chalmers.se/~rjmh/Papers/arrows.pdf} Generalising Monads
-      to Arrows}
+       to Arrows}
     - {{:https://www.haskell.org/arrows/} Arrows: A General Interface to
-      Computation}
+       Computation}
     - {{:https://hackage.haskell.org/package/base-4.14.0.0/docs/Control-Arrow.html}
-      Haskell's documentation of Arrow} *)
+       Haskell's documentation of Arrow} *)

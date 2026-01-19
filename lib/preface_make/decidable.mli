@@ -14,8 +14,9 @@
 
 module Via_divide_and_conquer
     (Divisible_req : Preface_specs.Divisible.WITH_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) :
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) :
   Preface_specs.DECIDABLE with type 'a t = 'a Req.t
 
 (** {2 Using divide, conquer, choose, lose and contramap}
@@ -28,10 +29,11 @@ module Via_divide_and_conquer
     full API. *)
 
 module Via_contramap_and_divide_and_conquer
-    (Divisible_req : Preface_specs.Divisible
-                     .WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) :
+    (Divisible_req :
+      Preface_specs.Divisible.WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) :
   Preface_specs.DECIDABLE with type 'a t = 'a Req.t
 
 (** {1 Over Divisible functor}
@@ -41,8 +43,9 @@ module Via_contramap_and_divide_and_conquer
 
 module Over_divisible
     (Divisible : Preface_specs.Divisible.CORE)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible.t) :
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible.t) :
   Preface_specs.DECIDABLE with type 'a t = 'a Req.t
 
 (** {1 Manual construction}
@@ -64,15 +67,17 @@ module Via
 
 module Core_via_divide_and_conquer
     (Divisible_req : Preface_specs.Divisible.WITH_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) :
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) :
   Preface_specs.Decidable.CORE with type 'a t = 'a Req.t
 
 module Core_via_contramap_and_divide_and_conquer
-    (Divisible_req : Preface_specs.Divisible
-                     .WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) :
+    (Divisible_req :
+      Preface_specs.Divisible.WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) :
   Preface_specs.Decidable.CORE with type 'a t = 'a Req.t
 
 (** {2 Deriving Operation} *)

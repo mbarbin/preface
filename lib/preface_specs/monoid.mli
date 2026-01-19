@@ -86,4 +86,4 @@ end
 (** {1 Additional references}
 
     - {{:http://hackage.haskell.org/package/base-4.14.0.0/docs/Data-Monoid.html}
-      Haskell's documentation of a Monoid} *)
+       Haskell's documentation of a Monoid} *)

@@ -32,7 +32,8 @@ module Over_functor
 
 (** {2 Composition}
 
-    Right-to-left composition of Alt with {!module-type:Preface_specs.FUNCTOR}. *)
+    Right-to-left composition of Alt with {!module-type:Preface_specs.FUNCTOR}.
+*)
 
 module Composition (F : Preface_specs.ALT) (G : Preface_specs.FUNCTOR) :
   Preface_specs.ALT with type 'a t = 'a G.t F.t

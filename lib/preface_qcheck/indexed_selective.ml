@@ -2,8 +2,9 @@ open QCheck2
 
 module Suite
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_SELECTIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_SELECTIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)
@@ -145,8 +146,9 @@ end
 
 module Suite_rigid
     (R : Model.COVARIANT_2)
-    (F : Preface_specs.INDEXED_SELECTIVE
-           with type ('a, 'index) t = ('a, 'index) R.t)
+    (F :
+      Preface_specs.INDEXED_SELECTIVE
+        with type ('a, 'index) t = ('a, 'index) R.t)
     (A : Model.T0)
     (B : Model.T0)
     (C : Model.T0)

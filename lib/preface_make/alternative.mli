@@ -10,7 +10,8 @@
     Standard method, using the minimal definition of an alt to derive its full
     API. *)
 
-module Via_pure_and_apply (Req : Preface_specs.Alternative.WITH_PURE_AND_APPLY) :
+module Via_pure_and_apply
+    (Req : Preface_specs.Alternative.WITH_PURE_AND_APPLY) :
   Preface_specs.ALTERNATIVE with type 'a t = 'a Req.t
 
 (** {2 Using pure, map, product, neutral and combine}
@@ -33,7 +34,8 @@ module Via_pure_map_and_product
     Other standard method, using the minimal definition of an alt to derive its
     full API. *)
 
-module Via_pure_and_lift2 (Req : Preface_specs.Alternative.WITH_PURE_AND_LIFT2) :
+module Via_pure_and_lift2
+    (Req : Preface_specs.Alternative.WITH_PURE_AND_LIFT2) :
   Preface_specs.ALTERNATIVE with type 'a t = 'a Req.t
 
 (** {2 Over an applicative}
@@ -46,13 +48,15 @@ module Via_pure_and_lift2 (Req : Preface_specs.Alternative.WITH_PURE_AND_LIFT2) 
 
 module Over_applicative
     (Applicative : Preface_specs.APPLICATIVE)
-    (Req : Preface_specs.Alternative.WITH_NEUTRAL_AND_COMBINE
-             with type 'a t = 'a Applicative.t) :
+    (Req :
+      Preface_specs.Alternative.WITH_NEUTRAL_AND_COMBINE
+        with type 'a t = 'a Applicative.t) :
   Preface_specs.ALTERNATIVE with type 'a t = 'a Req.t
 
 (** {1 Alternative Algebra}
 
-    Construction of {!module-type:Preface_specs.ALTERNATIVE} by combining them. *)
+    Construction of {!module-type:Preface_specs.ALTERNATIVE} by combining them.
+*)
 
 (** {2 Composition}
 

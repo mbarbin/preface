@@ -34,8 +34,9 @@ module Via_contramap_and_divide_and_conquer
 
 module Over_contravariant
     (Contravariant : Preface_specs.Contravariant.CORE)
-    (Req : Preface_specs.Divisible.WITH_DIVIDE_AND_CONQUER
-             with type 'a t = 'a Contravariant.t) :
+    (Req :
+      Preface_specs.Divisible.WITH_DIVIDE_AND_CONQUER
+        with type 'a t = 'a Contravariant.t) :
   Preface_specs.DIVISIBLE with type 'a t = 'a Req.t
 
 (** {1 Manual construction}

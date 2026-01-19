@@ -7,7 +7,7 @@
 
     For a detailed description of the module breakdown logic,
     {{:../Preface/index.html#concepts,-naming-and-terminology} go to the
-    homepage}.
+     homepage}.
 
     {2 Multiple path}
 

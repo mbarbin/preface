@@ -18,7 +18,7 @@ module Over (Type : Preface_specs.Types.T1) = struct
       | Select (x, y) ->
         let g = pre_apply f in
         Select (map g x, y)
-   ;;
+    ;;
   end)
 
   module Core = struct
@@ -36,10 +36,10 @@ module Over (Type : Preface_specs.Types.T1) = struct
       let rec aux : type a b c. (a -> (b -> c, c) Either.t) -> a t -> b t -> c t
           =
        fun f x -> function
-        | Select (y, z) -> Select (aux (g f) x y, z)
-        | Pure y ->
-          let h = Either.fold ~left:(( |> ) y) ~right:Fun.id in
-          Functor.(h % f <$> x)
+         | Select (y, z) -> Select (aux (g f) x y, z)
+         | Pure y ->
+           let h = Either.fold ~left:(( |> ) y) ~right:Fun.id in
+           Functor.(h % f <$> x)
       in
 
       aux (Either.map_left ( |> )) a b
@@ -58,7 +58,7 @@ module Over (Type : Preface_specs.Types.T1) = struct
         Selective.select
           (run transformation either)
           Selective.(( |> ) <$> transformation.transform fs)
-   ;;
+    ;;
   end
 
   module To_monoid (Monoid : Preface_specs.Monoid.CORE) = struct

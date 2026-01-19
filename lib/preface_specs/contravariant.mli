@@ -92,4 +92,4 @@ end
 (** {1 Additional references}
 
     - {{:https://typeclasses.com/contravariance}
-      https://typeclasses.com/contravariance} *)
+       https://typeclasses.com/contravariance} *)

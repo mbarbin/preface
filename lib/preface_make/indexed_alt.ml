@@ -25,8 +25,9 @@ end
 
 module Infix
     (Core : Preface_specs.Indexed_alt.CORE)
-    (Operation : Preface_specs.Indexed_alt.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_alt.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_functor.Infix (Core) (Operation)
   include Infix_combine (Core)

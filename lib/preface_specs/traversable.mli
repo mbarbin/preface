@@ -85,8 +85,8 @@ end
 (** {1 Additional references}
 
     - {{:http://www.soi.city.ac.uk/~ross/papers/Applicative.html} Applicative
-      Programming with Effects}
+       Programming with Effects}
     - {{:http://web.comlab.ox.ac.uk/oucl/work/jeremy.gibbons/publications/#iterator}
-      The Essence of the Iterator Pattern}
+       The Essence of the Iterator Pattern}
     - {{:http://arxiv.org/pdf/1202.2919} An Investigation of the Laws of
-      Traversals} *)
+       Traversals} *)

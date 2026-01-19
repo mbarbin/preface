@@ -22,7 +22,7 @@ struct
       | Apply (fa, x) ->
         let fs = map (fun g x -> f (g x)) fa in
         Apply (fs, x)
-   ;;
+    ;;
 
     let rec apply : type a b. (a -> b) t -> a t -> b t =
      fun fs xs ->
@@ -34,7 +34,7 @@ struct
           apply left xs
         in
         Apply (gs, x)
-   ;;
+    ;;
 
     let product a b = apply (apply (Pure (fun x y -> (x, y))) a) b
     let lift2 f x y = apply (map f x) y
@@ -54,7 +54,7 @@ struct
       | Pure x -> Applicative.pure x
       | Apply (fs, x) ->
         Applicative.apply (run transformation fs) (transformation.transform x)
-   ;;
+    ;;
   end
 
   module To_monoid (Monoid : Preface_specs.Monoid.CORE) = struct

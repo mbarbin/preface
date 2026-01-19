@@ -13,7 +13,8 @@
     + [arrow (g % f) = arrow f >>> arrow g]
     + [fst (arrow f) = arr (fst f)]
     + [fst (f >>> g) = fst f >>> fst g]
-    + [fst f >>> arrow (fun (x,y) -> (x,g y)) = arrow (fun (x,y) -> (x,g y)) >>> fst f]
+    + [fst f >>> arrow (fun (x,y) -> (x,g y)) = arrow (fun (x,y) -> (x,g y)) >>>
+       fst f]
     + [fst f >>> arrow Stdlib.fst = arrow Stdlib.fst >>> f]
     + [fst (fst f) >>> arrow assoc = arrow assoc >>> fst f] *)
 
@@ -44,7 +45,8 @@ module type WITH_ARROW_AND_SPLIT = sig
   (** @inline *)
 
   val split : ('a, 'b) t -> ('c, 'd) t -> ('a * 'c, 'b * 'd) t
-  (** Split the input between the two given [Arrows] and combine their output. *)
+  (** Split the input between the two given [Arrows] and combine their output.
+  *)
 end
 
 (** {1 Structure anatomy} *)
@@ -170,8 +172,8 @@ end
 (** {1 Additional references}
 
     - {{:http://www.cse.chalmers.se/~rjmh/Papers/arrows.pdf} Generalising Monads
-      to Arrows}
+       to Arrows}
     - {{:https://www.haskell.org/arrows/} Arrows: A General Interface to
-      Computation}
+       Computation}
     - {{:https://hackage.haskell.org/package/base-4.14.0.0/docs/Control-Arrow.html}
-      Haskell's documentation of Arrow} *)
+       Haskell's documentation of Arrow} *)

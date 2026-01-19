@@ -48,12 +48,15 @@ module Via_cokleisli_composition
 
 module Via
     (Core : Preface_specs.Indexed_comonad.CORE)
-    (Operation : Preface_specs.Indexed_comonad.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_comonad.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_comonad.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_comonad.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_comonad.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_comonad.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_COMONAD with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Building Core} *)
@@ -88,7 +91,8 @@ module Syntax (Core : Preface_specs.Indexed_comonad.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_comonad.CORE)
-    (Operation : Preface_specs.Indexed_comonad.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_comonad.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_comonad.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t

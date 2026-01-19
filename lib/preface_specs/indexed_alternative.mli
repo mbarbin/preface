@@ -18,7 +18,8 @@ module type WITH_NEUTRAL_AND_COMBINE = sig
   (** The neutral element of the [t]. *)
 end
 
-(** Minimal definition using [neutral], [combine], [pure], [map] and [product]. *)
+(** Minimal definition using [neutral], [combine], [pure], [map] and [product].
+*)
 module type WITH_PURE_MAP_AND_PRODUCT = sig
   type ('a, 'index) t
   (** The type held by the [Indexed Alternative]. *)

@@ -22,12 +22,15 @@ module Via_map (Req : Preface_specs.Indexed_functor.WITH_MAP) :
 
 module Via
     (Core : Preface_specs.Indexed_functor.CORE)
-    (Operation : Preface_specs.Indexed_functor.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_functor.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_functor.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_functor.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_functor.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_functor.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_FUNCTOR with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Building Core} *)
@@ -46,8 +49,9 @@ module Operation (Core : Preface_specs.Indexed_functor.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_functor.CORE)
-    (Operation : Preface_specs.Indexed_functor.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_functor.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_functor.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t
 

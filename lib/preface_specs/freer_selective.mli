@@ -55,7 +55,8 @@ module type TO_MONOID = sig
   (** Run the natural transformation over the [Freer selective]. *)
 end
 
-(** The [Freer selective] API without the {!module:Preface_specs.Selective} API. *)
+(** The [Freer selective] API without the {!module:Preface_specs.Selective} API.
+*)
 module type CORE = sig
   type 'a f
   (** The parametric type (which, unlike a
@@ -106,6 +107,6 @@ end
 (** {1 Additional references}
 
     - {{:http://hackage.haskell.org/package/selective} Haskell's documentation
-      of a Selective Application Functor}
+       of a Selective Application Functor}
     - {{:https://www.staff.ncl.ac.uk/andrey.mokhov/selective-functors.pdf}
-      Selective Applicative Functors} *)
+       Selective Applicative Functors} *)

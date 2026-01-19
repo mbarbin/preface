@@ -11,8 +11,10 @@
     + [right = dimap Either.swap Either.swap % left]
     + [map_snd Either.left = contramap_fst Either.left % left]
     + [map_snd Either.right = contramap_fst Either.right % right]
-    + [contramap_fst (Fun.Choice.right f) % left = map_snd (Fun.Choice.right f) % left]
-    + [contramap_fst (Fun.Choice.left f) % right = map_snd (Fun.Choice.left f) % right]
+    + [contramap_fst (Fun.Choice.right f) % left = map_snd (Fun.Choice.right f)
+       % left]
+    + [contramap_fst (Fun.Choice.left f) % right = map_snd (Fun.Choice.left f) %
+       right]
     + [left % left = dimap assoc unassoc % left]
     + [left % left = dimap unassoc assoc % right] *)
 
@@ -121,4 +123,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/profunctors-5.6.2/docs/Data-Profunctor.html#g:2}
-      Haskell's documentation of Choice Profunctor} *)
+       Haskell's documentation of Choice Profunctor} *)

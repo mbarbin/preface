@@ -180,7 +180,8 @@ module Via
 module Core_via_map_and_apply (Req : Preface_specs.Apply.WITH_MAP_AND_APPLY) :
   Preface_specs.Apply.CORE with type 'a t = 'a Req.t
 
-module Core_via_map_and_product (Req : Preface_specs.Apply.WITH_MAP_AND_PRODUCT) :
+module Core_via_map_and_product
+    (Req : Preface_specs.Apply.WITH_MAP_AND_PRODUCT) :
   Preface_specs.Apply.CORE with type 'a t = 'a Req.t
 
 module Core_via_map_and_lift2 (Req : Preface_specs.Apply.WITH_MAP_AND_LIFT2) :

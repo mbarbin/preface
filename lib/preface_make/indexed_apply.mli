@@ -18,13 +18,15 @@
 
     Standard method, using the minimal definition of an alt to derive its full
     API. *)
-module Via_map_and_apply (Req : Preface_specs.Indexed_apply.WITH_MAP_AND_APPLY) :
+module Via_map_and_apply
+    (Req : Preface_specs.Indexed_apply.WITH_MAP_AND_APPLY) :
   Preface_specs.INDEXED_APPLY with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Over_functor_via_apply
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_APPLY
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_apply.WITH_APPLY
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_APPLY with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Using map and product}
@@ -50,8 +52,9 @@ module Via_map_and_product
 
 module Over_functor_via_product
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_PRODUCT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_apply.WITH_PRODUCT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_APPLY with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Using map and lift2}
@@ -62,7 +65,8 @@ module Over_functor_via_product
     Other standard method, using the minimal definition of an alt to derive its
     full API. *)
 
-module Via_map_and_lift2 (Req : Preface_specs.Indexed_apply.WITH_MAP_AND_LIFT2) :
+module Via_map_and_lift2
+    (Req : Preface_specs.Indexed_apply.WITH_MAP_AND_LIFT2) :
   Preface_specs.INDEXED_APPLY with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Using lift2 over functor}
@@ -76,8 +80,9 @@ module Via_map_and_lift2 (Req : Preface_specs.Indexed_apply.WITH_MAP_AND_LIFT2) 
 
 module Over_functor_via_lift2
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_LIFT2
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_apply.WITH_LIFT2
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_APPLY with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {1 Manual construction}
@@ -91,12 +96,15 @@ module Over_functor_via_lift2
 
 module Via
     (Core : Preface_specs.Indexed_apply.CORE)
-    (Operation : Preface_specs.Indexed_apply.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_apply.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_apply.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_apply.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_apply.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_apply.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_APPLY with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Building Core} *)
@@ -115,20 +123,23 @@ module Core_via_map_and_lift2
 
 module Core_over_functor_via_apply
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_APPLY
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_apply.WITH_APPLY
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_apply.CORE with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core_over_functor_via_product
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_PRODUCT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_apply.WITH_PRODUCT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_apply.CORE with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core_over_functor_via_lift2
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_LIFT2
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_apply.WITH_LIFT2
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_apply.CORE with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Deriving Operation} *)
@@ -147,7 +158,8 @@ module Syntax (Core : Preface_specs.Indexed_apply.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_apply.CORE)
-    (Operation : Preface_specs.Indexed_apply.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_apply.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_apply.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t

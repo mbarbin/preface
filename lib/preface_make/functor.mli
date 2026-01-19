@@ -34,7 +34,7 @@ module Product (F : Preface_specs.FUNCTOR) (G : Preface_specs.FUNCTOR) :
 
     Sum of {!module-type:Preface_specs.FUNCTOR} using the technique described in
     {{:http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf} Data
-    types à la carte by W. Swierstra}.*)
+     types à la carte by W. Swierstra}.*)
 
 module Sum (F : Preface_specs.FUNCTOR) (G : Preface_specs.FUNCTOR) : sig
   type 'a sum =

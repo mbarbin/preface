@@ -11,8 +11,9 @@ end
 
 module Core_over_functor_via_apply
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_APPLY
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_apply.WITH_APPLY
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Core_via_map_and_apply (struct
     include Functor
@@ -31,8 +32,9 @@ end
 
 module Core_over_functor_via_product
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_PRODUCT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_apply.WITH_PRODUCT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Core_via_map_and_product (struct
     include Functor
@@ -51,8 +53,9 @@ end
 
 module Core_over_functor_via_lift2
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_LIFT2
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_apply.WITH_LIFT2
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   include Core_via_map_and_lift2 (struct
     include Functor
@@ -76,8 +79,9 @@ end
 
 module Infix
     (Core : Preface_specs.Indexed_apply.CORE)
-    (Operation : Preface_specs.Indexed_apply.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_apply.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_functor.Infix (Core) (Operation)
 
@@ -140,8 +144,9 @@ end
 
 module Over_functor_via_apply
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_APPLY
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_apply.WITH_APPLY
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_apply (Functor) (Req)
   module Operation = Operation (Core)
@@ -155,8 +160,9 @@ end
 
 module Over_functor_via_product
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_PRODUCT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_apply.WITH_PRODUCT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_product (Functor) (Req)
   module Operation = Operation (Core)
@@ -170,8 +176,9 @@ end
 
 module Over_functor_via_lift2
     (Functor : Preface_specs.Indexed_functor.WITH_MAP)
-    (Req : Preface_specs.Indexed_apply.WITH_LIFT2
-             with type ('a, 'index) t = ('a, 'index) Functor.t) =
+    (Req :
+      Preface_specs.Indexed_apply.WITH_LIFT2
+        with type ('a, 'index) t = ('a, 'index) Functor.t) =
 struct
   module Core = Core_over_functor_via_lift2 (Functor) (Req)
   module Operation = Operation (Core)

@@ -23,7 +23,8 @@ module type WITH_NEUTRAL_AND_COMBINE = sig
   (** The neutral element of the [Alternative]. *)
 end
 
-(** Minimal definition using [neutral], [combine], [pure], [map] and [product]. *)
+(** Minimal definition using [neutral], [combine], [pure], [map] and [product].
+*)
 module type WITH_PURE_MAP_AND_PRODUCT = sig
   include Applicative.WITH_PURE_MAP_AND_PRODUCT
   (** @inline *)
@@ -108,6 +109,6 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/base-4.14.0.0/docs/Control-Applicative.html#g:2}
-      Haskell's documentation of an Alternative}
+       Haskell's documentation of an Alternative}
     - {{:https://en.wikibooks.org/wiki/Haskell/Alternative_and_MonadPlus}
-      Alternative and Monad plus on Haskell Wiki} *)
+       Alternative and Monad plus on Haskell Wiki} *)

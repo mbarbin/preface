@@ -187,8 +187,8 @@ end
 
 module Over_applicative
     (A : Preface_specs.APPLICATIVE)
-    (Req : Preface_specs.Alternative.WITH_NEUTRAL_AND_COMBINE
-             with type 'a t = 'a A.t) =
+    (Req :
+      Preface_specs.Alternative.WITH_NEUTRAL_AND_COMBINE with type 'a t = 'a A.t) =
 struct
   type 'a t = 'a A.t
 

@@ -42,12 +42,15 @@ module Via_return_and_kleisli_composition
 
 module Via
     (Core : Preface_specs.Indexed_monad.CORE)
-    (Operation : Preface_specs.Indexed_monad.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_monad.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_monad.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_monad.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_monad.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_monad.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_MONAD with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Building Core} *)
@@ -80,7 +83,8 @@ module Syntax (Core : Preface_specs.Indexed_monad.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_monad.CORE)
-    (Operation : Preface_specs.Indexed_monad.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_monad.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_monad.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t

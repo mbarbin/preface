@@ -35,13 +35,13 @@ let program =
 let try_run ?(empty = false) p =
   let handler : type a. (a, 'b) E_try.handle =
    fun continue -> function
-    | Print message ->
-      let () = print_endline message in
-      continue ()
-    | Read ->
-      let value = if empty then "" else "foo" in
-      continue value
-    | Fail exn -> Error exn
+     | Print message ->
+       let () = print_endline message in
+       continue ()
+     | Read ->
+       let value = if empty then "" else "foo" in
+       continue value
+     | Fail exn -> Error exn
   in
   E_try.run { handler } p
 ;;

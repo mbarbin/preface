@@ -50,8 +50,9 @@ module Via_pure_and_lift2
 
 module Over_apply
     (Apply : Preface_specs.INDEXED_APPLY)
-    (Req : Preface_specs.Indexed_applicative.WITH_PURE
-             with type ('a, 'index) t = ('a, 'index) Apply.t) :
+    (Req :
+      Preface_specs.Indexed_applicative.WITH_PURE
+        with type ('a, 'index) t = ('a, 'index) Apply.t) :
   Preface_specs.INDEXED_APPLICATIVE
     with type ('a, 'index) t = ('a, 'index) Req.t
 
@@ -66,12 +67,15 @@ module Over_apply
 
 module Via
     (Core : Preface_specs.Indexed_applicative.CORE)
-    (Operation : Preface_specs.Indexed_applicative.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_applicative.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_applicative.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_applicative.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_applicative.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_applicative.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_APPLICATIVE
     with type ('a, 'index) t = ('a, 'index) Core.t
 
@@ -108,7 +112,8 @@ module Syntax (Core : Preface_specs.Indexed_applicative.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_applicative.CORE)
-    (Operation : Preface_specs.Indexed_applicative.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_applicative.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_applicative.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t

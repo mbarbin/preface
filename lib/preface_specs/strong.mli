@@ -9,11 +9,13 @@
     + [fst = dimap Pair.swap Pair.swap % snd]
     + [contramap_fst Pair.fst = map_snd Pair.fst % fst]
     + [contramap_fst (Fun.snd f) % fst = map_snd (Fun.snd f) % fst]
-    + [fst % fst = dimap (fun ((a,b),c) -> (a,(b,c))) (fun (a,(b,c)) -> ((a,b),c)) % fst]
+    + [fst % fst = dimap (fun ((a,b),c) -> (a,(b,c))) (fun (a,(b,c)) ->
+       ((a,b),c)) % fst]
     + [snd = dimap Pair.swap Pair.swap % fst]
     + [contramap_fst Pair.snd = map_snd Pair.snd % snd]
     + [contramap_fst (Fun.fst f) % snd = map_snd (Fun.fst f) % snd]
-    + [snd % snd = dimap  (fun (a,(b,c)) -> ((a,b),c))  (fun ((a,b),c) -> (a,(b,c))) % snd ]*)
+    + [snd % snd = dimap  (fun (a,(b,c)) -> ((a,b),c))  (fun ((a,b),c) ->
+       (a,(b,c))) % snd ]*)
 
 (** {1 Minimal definition} *)
 
@@ -135,6 +137,6 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/profunctors-5.6.2/docs/Data-Profunctor.html#g:2}
-      Haskell's documentation of Strong Profunctor}
+       Haskell's documentation of Strong Profunctor}
     - {{:http://www.riec.tohoku.ac.jp/~asada/papers/arrStrMnd.pdf} Arrows are
-      Strong Monads} *)
+       Strong Monads} *)

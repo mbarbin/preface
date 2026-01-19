@@ -113,6 +113,6 @@ end
 (** {1 Additional references}
 
     - {{:http://hackage.haskell.org/package/base-4.12.0.0/docs/Control-Applicative.html}
-      Haskell's documentation of an Applicative Functor}
+       Haskell's documentation of an Applicative Functor}
     - {{:http://www.staff.city.ac.uk/~ross/papers/Applicative.html} Applicative
-      Programming with Effects} *)
+       Programming with Effects} *)

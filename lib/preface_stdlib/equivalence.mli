@@ -1,6 +1,7 @@
 (** Implementation for [Equivalence.t]. *)
 
-(** An [Equivalence] is just a function that takes to ['a] and return a [bool]. *)
+(** An [Equivalence] is just a function that takes to ['a] and return a [bool].
+*)
 
 (** {1 Type} *)
 

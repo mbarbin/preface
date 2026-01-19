@@ -13,8 +13,9 @@
 
 module Over_applicative_via_select
     (Applicative : Preface_specs.INDEXED_APPLICATIVE)
-    (Req : Preface_specs.Indexed_selective.WITH_SELECT
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_SELECT
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) :
   Preface_specs.INDEXED_SELECTIVE with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Over an Applicative using branch}
@@ -28,8 +29,9 @@ module Over_applicative_via_select
 
 module Over_applicative_via_branch
     (Applicative : Preface_specs.INDEXED_APPLICATIVE)
-    (Req : Preface_specs.Indexed_selective.WITH_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) :
   Preface_specs.INDEXED_SELECTIVE with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Over a Functor using select}
@@ -43,8 +45,9 @@ module Over_applicative_via_branch
 
 module Over_functor_via_select
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_SELECTIVE with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {2 Over a Functor using branch}
@@ -58,8 +61,9 @@ module Over_functor_via_select
 
 module Over_functor_via_branch
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.INDEXED_SELECTIVE with type ('a, 'index) t = ('a, 'index) Req.t
 
 (** {1 Manual construction}
@@ -73,41 +77,48 @@ module Over_functor_via_branch
 
 module Via
     (Core : Preface_specs.Indexed_selective.CORE)
-    (Operation : Preface_specs.Indexed_selective.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Infix : Preface_specs.Indexed_selective.INFIX
-               with type ('a, 'index) t = ('a, 'index) Core.t)
-    (Syntax : Preface_specs.Indexed_selective.SYNTAX
-                with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_selective.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Infix :
+      Preface_specs.Indexed_selective.INFIX
+        with type ('a, 'index) t = ('a, 'index) Core.t)
+    (Syntax :
+      Preface_specs.Indexed_selective.SYNTAX
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.INDEXED_SELECTIVE with type ('a, 'index) t = ('a, 'index) Core.t
 
 (** {2 Building Core} *)
 
 module Core_over_functor_via_select
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_SELECT
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_selective.CORE
     with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core_over_functor_via_branch
     (Functor : Preface_specs.Indexed_functor.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Functor.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_PURE_AND_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Functor.t) :
   Preface_specs.Indexed_selective.CORE
     with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core_over_applicative_via_select
     (Applicative : Preface_specs.Indexed_applicative.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_SELECT
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_SELECT
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) :
   Preface_specs.Indexed_selective.CORE
     with type ('a, 'index) t = ('a, 'index) Req.t
 
 module Core_over_applicative_via_branch
     (Applicative : Preface_specs.Indexed_applicative.CORE)
-    (Req : Preface_specs.Indexed_selective.WITH_BRANCH
-             with type ('a, 'index) t = ('a, 'index) Applicative.t) :
+    (Req :
+      Preface_specs.Indexed_selective.WITH_BRANCH
+        with type ('a, 'index) t = ('a, 'index) Applicative.t) :
   Preface_specs.Indexed_selective.CORE
     with type ('a, 'index) t = ('a, 'index) Req.t
 
@@ -121,8 +132,9 @@ module Operation (Core : Preface_specs.Indexed_selective.CORE) :
 
 module Infix
     (Core : Preface_specs.Indexed_selective.CORE)
-    (Operation : Preface_specs.Indexed_selective.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) :
+    (Operation :
+      Preface_specs.Indexed_selective.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) :
   Preface_specs.Indexed_selective.INFIX
     with type ('a, 'index) t = ('a, 'index) Core.t
 

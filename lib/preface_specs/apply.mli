@@ -123,4 +123,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/semigroupoids-5.3.6/docs/Data-Functor-Apply.html#g:2}
-      Haskell's documentation of an Apply Functor} *)
+       Haskell's documentation of an Apply Functor} *)

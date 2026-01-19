@@ -3,7 +3,7 @@
 (** [Over] and [Under] allows Static analysis of selective functors with
     over-approximation.(mentioned in
     {{:https://dl.acm.org/doi/pdf/10.1145/3341694} Selective Applicative
-    Functor} by A. Mokhov, G. Lukyanov, S. Marlow and J. Dimino. *)
+     Functor} by A. Mokhov, G. Lukyanov, S. Marlow and J. Dimino. *)
 
 (** {1 Over approximation}
 

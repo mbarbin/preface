@@ -52,8 +52,9 @@ end
 
 module Infix
     (Core : Preface_specs.Indexed_monad.CORE)
-    (Operation : Preface_specs.Indexed_monad.OPERATION
-                   with type ('a, 'index) t = ('a, 'index) Core.t) =
+    (Operation :
+      Preface_specs.Indexed_monad.OPERATION
+        with type ('a, 'index) t = ('a, 'index) Core.t) =
 struct
   include Indexed_functor.Infix (Core) (Operation)
 

@@ -1,4 +1,5 @@
-(** [Closed] is a {!module:Profunctor} working on exponential types (function). *)
+(** [Closed] is a {!module:Profunctor} working on exponential types (function).
+*)
 
 (** {2 Laws}
 
@@ -6,7 +7,8 @@
     laws.
 
     + All {!module:Profunctor} laws
-    + [contramap_fst (fun x -> x % f) % closed = map_snd (fun x -> x % f) % closed]
+    + [contramap_fst (fun x -> x % f) % closed = map_snd (fun x -> x % f) %
+       closed]
     + [closed % closed = dimap uncurry curry % closed]
     + [dimap const (fun f -> f ()) % closed = id] *)
 
@@ -91,4 +93,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/profunctors-5.6.2/docs/Data-Profunctor.html#g:3}
-      Haskell's documentation of Closed Profunctor} *)
+       Haskell's documentation of Closed Profunctor} *)

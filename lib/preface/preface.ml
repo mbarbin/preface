@@ -46,7 +46,8 @@
     </td>
   </tr>
 </table>
-%} *)
+%}
+*)
 
 (** {1 Abstraction implementations}
 
@@ -160,7 +161,8 @@ module Make = Preface_make
     </td>
   </tr>
 </table>
-%} *)
+%}
+*)
 
 (** {e Sometimes it happens that some modules are not present (e.g. when there
        are no infix operators) or sometimes some additional modules are added,
@@ -179,7 +181,8 @@ module Make = Preface_make
           src="https://ocaml-preface.github.io/images/cut.svg"
           alt="Module cutting"
         >
-      </center> %} *)
+      </center> %}
+*)
 
 (** Although it is likely that the use of the {e Happy Path} covers a very large
     part of the use cases and that it is not necessary to achieve every

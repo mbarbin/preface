@@ -2,7 +2,8 @@
     (which is an arbitrary type). [Store] is a {e comonad transformer}. [Store]
     is [Costate] (the dual of [State]).*)
 
-(** Operation of [Store] comonad parametrized over an inner comonad and [store]. *)
+(** Operation of [Store] comonad parametrized over an inner comonad and [store].
+*)
 module type CORE = sig
   type store
   (** The encapsulated store. *)

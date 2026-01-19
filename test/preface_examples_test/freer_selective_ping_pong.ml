@@ -57,12 +57,12 @@ let test_when_read_returns_ping () =
           (fun resume an_effect ->
             let f : type b. (b -> 'a) -> b io -> 'a =
              fun resume -> function
-              | IOWrite s ->
-                let () = state := !state @ [ "Write " ^ s ] in
-                resume ()
-              | IORead ->
-                let () = state := !state @ [ "Read" ] in
-                resume "ping"
+               | IOWrite s ->
+                 let () = state := !state @ [ "Write " ^ s ] in
+                 resume ()
+               | IORead ->
+                 let () = state := !state @ [ "Read" ] in
+                 resume "ping"
             in
             f resume an_effect )
       }
@@ -81,12 +81,12 @@ let test_when_read_returns_something_else () =
           (fun resume an_effect ->
             let f : type b. (b -> 'a) -> b io -> 'a =
              fun resume -> function
-              | IOWrite s ->
-                let () = state := !state @ [ "Write " ^ s ] in
-                resume ()
-              | IORead ->
-                let () = state := !state @ [ "Read" ] in
-                resume "not_ping"
+               | IOWrite s ->
+                 let () = state := !state @ [ "Write " ^ s ] in
+                 resume ()
+               | IORead ->
+                 let () = state := !state @ [ "Read" ] in
+                 resume "not_ping"
             in
             f resume an_effect )
       }

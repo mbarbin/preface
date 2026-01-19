@@ -1,7 +1,7 @@
 (** Set of interfaces describing all the abstractions available in Preface. For
     a detailed description of the module breakdown logic,
     {{:../Preface/index.html#concepts,-naming-and-terminology} go to the
-    homepage}.
+     homepage}.
 
     {%html:
       <center>
@@ -10,7 +10,8 @@
           src="https://ocaml-preface.github.io/images/specs.svg"
           alt="Abstraction hierarchy"
         ></a>
-      </center>%} *)
+      </center>%}
+*)
 
 (** {1 Monoid hierarchy} *)
 

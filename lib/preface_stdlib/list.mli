@@ -51,7 +51,8 @@ module Invariant : Preface_specs.INVARIANT with type 'a t = 'a t
 
     [List] is the {e Free monoid over a type} so wrapping a
     {!module-type:Preface_specs.SEMIGROUP} into an [List] gives us a
-    {!module-type:Preface_specs.MONOID} with [empty list] as a neutral element. *)
+    {!module-type:Preface_specs.MONOID} with [empty list] as a neutral element.
+*)
 
 module Monoid (T : Preface_specs.Types.T0) :
   Preface_specs.MONOID with type t = T.t t

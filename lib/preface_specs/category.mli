@@ -80,4 +80,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/base-4.14.0.0/docs/Control-Category.html}
-      Haskell's documentation of Category} *)
+       Haskell's documentation of Category} *)

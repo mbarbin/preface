@@ -46,8 +46,9 @@ end
 
 module Via
     (C : Preface_specs.Indexed_foldable.CORE)
-    (O : Preface_specs.Indexed_foldable.OPERATION
-           with type ('a, 'index) t = ('a, 'index) C.t) =
+    (O :
+      Preface_specs.Indexed_foldable.OPERATION
+        with type ('a, 'index) t = ('a, 'index) C.t) =
 struct
   include C
 

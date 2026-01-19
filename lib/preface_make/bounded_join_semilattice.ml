@@ -4,8 +4,9 @@ module Core_via_join_and_bottom
 
 module Core_over_join_semilattice_and_via_bottom
     (Join_req : Preface_specs.Join_semilattice.CORE)
-    (Req : Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
-             with type t = Join_req.t) =
+    (Req :
+      Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
+        with type t = Join_req.t) =
 struct
   include Join_req
   include Req
@@ -35,8 +36,9 @@ end
 
 module Over_join_semilattice_and_via_bottom
     (Join_req : Preface_specs.Join_semilattice.CORE)
-    (Req : Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
-             with type t = Join_req.t) =
+    (Req :
+      Preface_specs.Bounded_join_semilattice.WITH_BOTTOM
+        with type t = Join_req.t) =
 struct
   module Core = Core_over_join_semilattice_and_via_bottom (Join_req) (Req)
   include Core

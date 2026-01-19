@@ -1,17 +1,19 @@
 module Core_via_divide_and_conquer
     (Divisible_req : Preface_specs.Divisible.WITH_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) =
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) =
 struct
   include Req
   include Divisible.Core_via_divide_and_conquer (Divisible_req)
 end
 
 module Core_via_contramap_and_divide_and_conquer
-    (Divisible_req : Preface_specs.Divisible
-                     .WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) =
+    (Divisible_req :
+      Preface_specs.Divisible.WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) =
 struct
   include Req
   include Divisible_req
@@ -47,8 +49,9 @@ end
 
 module Via_divide_and_conquer
     (Divisible_req : Preface_specs.Divisible.WITH_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) =
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) =
 struct
   module Core = Core_via_divide_and_conquer (Divisible_req) (Req)
   include Core
@@ -59,10 +62,11 @@ struct
 end
 
 module Via_contramap_and_divide_and_conquer
-    (Divisible_req : Preface_specs.Divisible
-                     .WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible_req.t) =
+    (Divisible_req :
+      Preface_specs.Divisible.WITH_CONTRAMAP_AND_DIVIDE_AND_CONQUER)
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible_req.t) =
 struct
   module Core = Core_via_contramap_and_divide_and_conquer (Divisible_req) (Req)
   include Core
@@ -74,6 +78,7 @@ end
 
 module Over_divisible
     (Divisible : Preface_specs.Divisible.CORE)
-    (Req : Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
-             with type 'a t = 'a Divisible.t) =
+    (Req :
+      Preface_specs.Decidable.WITH_LOSE_AND_CHOOSE
+        with type 'a t = 'a Divisible.t) =
   Via_contramap_and_divide_and_conquer (Divisible) (Req)

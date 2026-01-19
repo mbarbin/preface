@@ -15,7 +15,7 @@ module Over_functor (F : Preface_specs.Functor.CORE) = struct
       | Pure x -> Pure (f x)
       | Select (either, fs) ->
         Select (map (Either.map_right f) either, F.map (fun g x -> f (g x)) fs)
-   ;;
+    ;;
   end
 
   module Core = struct
@@ -32,7 +32,7 @@ module Over_functor (F : Preface_specs.Functor.CORE) = struct
         and g x a = bimap (fun b -> (b, a)) (fun k -> k a) x
         and h f (x, y) = f x y in
         Select (select (Functor.map f x) (Functor.map g either), F.map h fs)
-   ;;
+    ;;
   end
 
   module S = Selective.Over_functor_via_select (Functor) (Core)
@@ -47,7 +47,7 @@ module Over_functor (F : Preface_specs.Functor.CORE) = struct
         Selective.select
           (run transformation either)
           (transformation.transform fs)
-   ;;
+    ;;
   end
 
   module To_monoid (Monoid : Preface_specs.Monoid.CORE) = struct

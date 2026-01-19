@@ -119,8 +119,8 @@ module From_functor (Functor : Preface_specs.Functor.CORE) :
 
 module Via
     (Core : Preface_specs.Strong.CORE)
-    (Operation : Preface_specs.Strong.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) :
+    (Operation :
+      Preface_specs.Strong.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t) :
   Preface_specs.STRONG with type ('a, 'b) t = ('a, 'b) Operation.t
 
 (** {2 Building Core} *)

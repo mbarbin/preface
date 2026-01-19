@@ -90,7 +90,8 @@ module Via
 
 (** {2 Building Core} *)
 
-module Core_via_return_and_bind (Req : Preface_specs.Monad.WITH_RETURN_AND_BIND) :
+module Core_via_return_and_bind
+    (Req : Preface_specs.Monad.WITH_RETURN_AND_BIND) :
   Preface_specs.Monad.CORE with type 'a t = 'a Req.t
 
 module Core_via_return_map_and_join

@@ -18,8 +18,8 @@ module Via_meet_and_top
 
 module Over_meet_semilattice_and_via_top
     (Meet_req : Preface_specs.Meet_semilattice.CORE)
-    (Req : Preface_specs.Bounded_meet_semilattice.WITH_TOP
-             with type t = Meet_req.t) :
+    (Req :
+      Preface_specs.Bounded_meet_semilattice.WITH_TOP with type t = Meet_req.t) :
   Preface_specs.BOUNDED_MEET_SEMILATTICE with type t = Req.t
 
 (** {1 Manual construction}
@@ -45,8 +45,8 @@ module Core_via_meet_and_top
 
 module Core_over_meet_semilattice_and_via_top
     (Meet_req : Preface_specs.Meet_semilattice.CORE)
-    (Req : Preface_specs.Bounded_meet_semilattice.WITH_TOP
-             with type t = Meet_req.t) :
+    (Req :
+      Preface_specs.Bounded_meet_semilattice.WITH_TOP with type t = Meet_req.t) :
   Preface_specs.Bounded_meet_semilattice.CORE with type t = Req.t
 
 (** {2 Deriving Infix} *)

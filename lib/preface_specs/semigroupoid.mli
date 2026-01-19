@@ -55,14 +55,14 @@ module type INFIX = sig
       [<<<] looks like [<%] (it is an alias for the same function), they differ
       in their priorities.
       {{:https://ocaml.org/manual/expr.html#ss%3Aprecedence-and-associativity}
-      OCaml documentation of operators priorities} *)
+       OCaml documentation of operators priorities} *)
 
   val ( >>> ) : ('a, 'b) t -> ('b, 'c) t -> ('a, 'c) t
   (** An alias of {!val:CORE.compose_left_to_right} (to be iso with Haskell's
       approach). Even [>>>] looks like [%>] (it is an alias for the same
       function), they differ in their priorities.
       {{:https://ocaml.org/manual/expr.html#ss%3Aprecedence-and-associativity}
-      OCaml documentation of operators priorities} *)
+       OCaml documentation of operators priorities} *)
 end
 
 (** {1 Complete API} *)
@@ -93,4 +93,4 @@ end
 (** {1 Additional references}
 
     - {{:https://hackage.haskell.org/package/semigroupoids} Haskell's
-      documentation of Semigroupoid} *)
+       documentation of Semigroupoid} *)

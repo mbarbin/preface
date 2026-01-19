@@ -24,8 +24,8 @@ end
 
 module Via
     (Core : Preface_specs.Bifunctor.CORE)
-    (Operation : Preface_specs.Bifunctor.OPERATION
-                   with type ('a, 'b) t = ('a, 'b) Core.t) =
+    (Operation :
+      Preface_specs.Bifunctor.OPERATION with type ('a, 'b) t = ('a, 'b) Core.t) =
 struct
   include Core
   include Operation

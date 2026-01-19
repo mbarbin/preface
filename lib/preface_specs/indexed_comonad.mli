@@ -39,7 +39,8 @@ module type WITH_COKLEISLI_COMPOSITION = sig
 
   val compose_left_to_right :
     (('a, 'index) t -> 'b) -> (('b, 'index) t -> 'c) -> ('a, 'index) t -> 'c
-  (** Composing monadic functions using Co-Kleisli Arrow (from left to right). *)
+  (** Composing monadic functions using Co-Kleisli Arrow (from left to right).
+  *)
 end
 
 (** {1 Structure anatomy} *)
