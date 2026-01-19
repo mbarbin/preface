@@ -7,20 +7,20 @@ let nel_testable a =
 open Preface_core.Nonempty_list
 
 let should_create () =
-  let expected = Last 10
+  let expected = [ 10 ]
   and computed = create 10 in
   Alcotest.(check (nel_testable int)) "should_create" expected computed
 ;;
 
 let should_create_from_list_nonempty () =
-  let expected = Some (10 :: 11 :: 12 :: Last 13)
+  let expected = Some [ 10; 11; 12; 13 ]
   and computed = from_list [ 10; 11; 12; 13 ] in
   Alcotest.(check (option (nel_testable int)))
     "should_create_from_list_nonempty" expected computed
 ;;
 
 let should_create_from_list_singleton () =
-  let expected = Some (Last 10)
+  let expected = Some [ 10 ]
   and computed = from_list [ 10 ] in
   Alcotest.(check (option (nel_testable int)))
     "should_create_from_list_singleton" expected computed
@@ -59,7 +59,7 @@ let should_extract_empty_list () =
 ;;
 
 let should_extract_list () =
-  let expected = Some (300 :: 400 :: Last 500)
+  let expected = Some [ 300; 400; 500 ]
   and computed = tl (cons 200 (cons 300 (cons 400 (create 500)))) in
   Alcotest.(check (option (nel_testable int)))
     "should_extract_list" expected computed
@@ -78,7 +78,7 @@ let should_have_length_4 () =
 ;;
 
 let should_cons () =
-  let expected = 200 :: 300 :: 400 :: Last 500
+  let expected = [ 200; 300; 400; 500 ]
   and computed = cons 200 (cons 300 (cons 400 (create 500))) in
   Alcotest.(check (nel_testable int)) "should_cons" expected computed
 ;;
@@ -90,7 +90,7 @@ let should_rev_singleton () =
 ;;
 
 let should_rev () =
-  let expected = 500 :: 400 :: 300 :: Last 200
+  let expected = [ 500; 400; 300; 200 ]
   and computed = rev (cons 200 (cons 300 (cons 400 (create 500)))) in
   Alcotest.(check (nel_testable int)) "should_rev_singleton" expected computed
 ;;
@@ -99,7 +99,7 @@ let should_iteri_1 () =
   let expected = List.[ (0, 1); (1, 2); (2, 3) ]
   and computed =
     let x = ref [] in
-    let () = iteri (fun i e -> x := !x @ [ (i, e) ]) (1 :: 2 :: Last 3) in
+    let () = iteri (fun i e -> x := !x @ [ (i, e) ]) [ 1; 2; 3 ] in
     !x
   in
   Alcotest.(check (list (pair int int))) "should_iteri_1" expected computed
@@ -109,7 +109,7 @@ let should_iteri_2 () =
   let expected = List.[ (0, 10) ]
   and computed =
     let x = ref [] in
-    let () = iteri (fun i e -> x := !x @ [ (i, e) ]) (Last 10) in
+    let () = iteri (fun i e -> x := !x @ [ (i, e) ]) [ 10 ] in
     !x
   in
   Alcotest.(check (list (pair int int))) "should_iteri_1" expected computed
@@ -119,7 +119,7 @@ let should_iter_1 () =
   let expected = List.[ (0, 1); (1, 2); (2, 3) ]
   and computed =
     let x = ref [] in
-    let () = iter (fun e -> x := !x @ [ (e - 1, e) ]) (1 :: 2 :: Last 3) in
+    let () = iter (fun e -> x := !x @ [ (e - 1, e) ]) [ 1; 2; 3 ] in
     !x
   in
   Alcotest.(check (list (pair int int))) "should_iteri_1" expected computed
@@ -129,81 +129,77 @@ let should_iter_2 () =
   let expected = List.[ (9, 10) ]
   and computed =
     let x = ref [] in
-    let () = iter (fun e -> x := !x @ [ (e - 1, e) ]) (Last 10) in
+    let () = iter (fun e -> x := !x @ [ (e - 1, e) ]) [ 10 ] in
     !x
   in
   Alcotest.(check (list (pair int int))) "should_iteri_1" expected computed
 ;;
 
 let should_mapi_1 () =
-  let expected = (0, "1") :: (1, "2") :: (2, "3") :: Last (3, "4")
-  and computed =
-    mapi (fun i x -> (i, string_of_int x)) (1 :: 2 :: 3 :: Last 4)
-  in
+  let expected = [ (0, "1"); (1, "2"); (2, "3"); (3, "4") ]
+  and computed = mapi (fun i x -> (i, string_of_int x)) [ 1; 2; 3; 4 ] in
   Alcotest.(check (nel_testable (pair int string)))
     "should_mapi_1" expected computed
 ;;
 
 let should_mapi_2 () =
-  let expected = Last (0, "1")
-  and computed = mapi (fun i x -> (i, string_of_int x)) (Last 1) in
+  let expected = [ (0, "1") ]
+  and computed = mapi (fun i x -> (i, string_of_int x)) [ 1 ] in
   Alcotest.(check (nel_testable (pair int string)))
     "should_mapi_1" expected computed
 ;;
 
 let should_map_1 () =
-  let expected = "11" :: "12" :: "13" :: Last "14"
-  and computed =
-    map (fun x -> string_of_int (x + 10)) (1 :: 2 :: 3 :: Last 4)
-  in
+  let expected = [ "11"; "12"; "13"; "14" ]
+  and computed = map (fun x -> string_of_int (x + 10)) [ 1; 2; 3; 4 ] in
   Alcotest.(check (nel_testable string)) "should_mapi_1" expected computed
 ;;
 
 let should_map_2 () =
-  let expected = Last "11"
-  and computed = map (fun x -> string_of_int (x + 10)) (Last 1) in
+  let expected = [ "11" ]
+  and computed = map (fun x -> string_of_int (x + 10)) [ 1 ] in
   Alcotest.(check (nel_testable string)) "should_mapi_1" expected computed
 ;;
 
 let should_fold_left_1 () =
   let expected = "HelloPrefaceOCaml"
   and computed =
-    fold_left (fun a x -> a ^ x) "" ("Hello" :: "Preface" :: Last "OCaml")
+    fold_left (fun a x -> a ^ x) "" [ "Hello"; "Preface"; "OCaml" ]
   in
   Alcotest.(check string) "should_fold_left_1" expected computed
 ;;
 
 let should_fold_left_2 () =
   let expected = "Hello"
-  and computed = fold_left (fun a x -> a ^ x) "" (Last "Hello") in
+  and computed = fold_left (fun a x -> a ^ x) "" [ "Hello" ] in
   Alcotest.(check string) "should_fold_left_2" expected computed
 ;;
 
 let should_fold_right_1 () =
   let expected = "FooOCamlPrefaceHello"
   and computed =
-    fold_right (fun x a -> a ^ x) ("Hello" :: "Preface" :: Last "OCaml") "Foo"
+    fold_right (fun x a -> a ^ x) [ "Hello"; "Preface"; "OCaml" ] "Foo"
   in
   Alcotest.(check string) "should_fold_right_1" expected computed
 ;;
 
 let should_fold_right_2 () =
   let expected = "BarHello"
-  and computed = fold_right (fun x a -> a ^ x) (Last "Hello") "Bar" in
+  and computed = fold_right (fun x a -> a ^ x) [ "Hello" ] "Bar" in
   Alcotest.(check string) "should_fold_right_2" expected computed
 ;;
 
 let should_append () =
-  let expected = 1 :: 2 :: 3 :: 4 :: 5 :: Last 6
-  and computed = append (1 :: 2 :: Last 3) (4 :: 5 :: Last 6) in
+  let expected = [ 1; 2; 3; 4; 5; 6 ]
+  and computed = append [ 1; 2; 3 ] [ 4; 5; 6 ] in
   Alcotest.(check (nel_testable int)) "should_append" expected computed
 ;;
 
 let should_rev_append () =
   let expected = List.[ 1; 2; 3; 4; 5; 6 ]
   and computed =
-    let l1 = 3 :: 2 :: Last 1
-    and l2 = 4 :: 5 :: Last 6 in
+    let l1 = [ 3; 2; 1 ]
+    and l2 = [ 4; 5; 6 ] in
     to_list (rev_append l1 l2)
   in
   Alcotest.(check (list int))
@@ -211,16 +207,14 @@ let should_rev_append () =
 ;;
 
 let should_flatten_1 () =
-  let expected = 1 :: 2 :: 3 :: 4 :: 5 :: Last 6
-  and computed =
-    flatten ((1 :: Last 2) :: (3 :: Last 4) :: Last (5 :: Last 6))
-  in
+  let expected = [ 1; 2; 3; 4; 5; 6 ]
+  and computed = flatten [ [ 1; 2 ]; [ 3; 4 ]; [ 5; 6 ] ] in
   Alcotest.(check (nel_testable int)) "should_flatten_1" expected computed
 ;;
 
 let should_flatten_2 () =
-  let expected = Last 1
-  and computed = flatten (Last (Last 1)) in
+  let expected = [ 1 ]
+  and computed = flatten [ [ 1 ] ] in
   Alcotest.(check (nel_testable int)) "should_flatten_2" expected computed
 ;;
 

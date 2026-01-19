@@ -134,7 +134,7 @@ module Nonempty_list = struct
     let* xs = list_size (int_bound 4) x in
     let+ x = x in
     Stdlib.List.fold_left
-      Preface.Nonempty_list.(fun acc x -> x :: acc)
+      Preface.Nonempty_list.(fun acc x -> cons x acc)
       (Preface.Nonempty_list.create x)
       xs
   ;;

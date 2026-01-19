@@ -1,6 +1,4 @@
-type 'a t = 'a Preface_core.Nonempty_list.t =
-  | Last of 'a
-  | ( :: ) of ('a * 'a t)
+type 'a t = 'a Preface_core.Nonempty_list.t = ( :: ) of ('a * 'a list)
 
 include (
   Preface_core.Nonempty_list :
@@ -44,15 +42,13 @@ module Applicative_traversable (A : Preface_specs.APPLICATIVE) =
       type 'a t = 'a A.t
       type 'a iter = 'a Preface_core.Nonempty_list.t
 
-      let traverse f l =
+      let traverse f (x :: xs) =
         let open A.Infix in
         let rec traverse_aux acc = function
-          | Last x -> rev <$> A.lift2 cons (f x) acc
-          | x :: xs -> traverse_aux (A.lift2 cons (f x) acc) xs
+          | [] -> rev <$> acc
+          | y :: ys -> traverse_aux (A.lift2 cons (f y) acc) ys
         in
-        match l with
-        | Last x -> create <$> f x
-        | x :: xs -> traverse_aux (create <$> f x) xs
+        traverse_aux (create <$> f x) xs
       ;;
     end)
 
@@ -76,15 +72,13 @@ module Monad_traversable (M : Preface_specs.MONAD) =
       type 'a t = 'a M.t
       type 'a iter = 'a Preface_core.Nonempty_list.t
 
-      let traverse f l =
+      let traverse f (x :: xs) =
         let open M.Infix in
         let rec traverse_aux acc = function
-          | Last x -> rev <$> M.lift2 cons (f x) acc
-          | x :: xs -> traverse_aux (M.lift2 cons (f x) acc) xs
+          | [] -> rev <$> acc
+          | y :: ys -> traverse_aux (M.lift2 cons (f y) acc) ys
         in
-        match l with
-        | Last x -> f x >|= create
-        | x :: xs -> traverse_aux (f x >|= create) xs
+        traverse_aux (f x >|= create) xs
       ;;
     end)
 
@@ -101,10 +95,15 @@ module Invariant = Preface_make.Invariant.From_functor (Functor)
 module Comonad = Preface_make.Comonad.Via_extend (struct
   type nonrec 'a t = 'a t
 
-  let extract = function Last x | x :: _ -> x
+  let extract (x :: _) = x
 
-  let rec extend f nel =
-    match nel with Last _ -> Last (f nel) | _ :: xs -> f nel :: extend f xs
+  let extend f nel =
+    let rec aux acc nel =
+      match nel with
+      | _ :: [] -> rev (f nel :: acc)
+      | _ :: y :: ys -> aux (f nel :: acc) (y :: ys)
+    in
+    aux [] nel
   ;;
 end)
 
