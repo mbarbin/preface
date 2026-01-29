@@ -49,7 +49,8 @@ module Applicative_traversable (A : Preface_specs.APPLICATIVE) =
           | [] -> Stdlib.List.rev <$> acc
           | y :: ys -> traverse_tail (A.lift2 Stdlib.List.cons (f y) acc) ys
         in
-        A.lift2 cons' (f x) (traverse_tail (A.pure []) xs)
+        let fx = f x in
+        A.lift2 cons' fx (traverse_tail (A.pure []) xs)
       ;;
     end)
 
@@ -79,7 +80,8 @@ module Monad_traversable (M : Preface_specs.MONAD) =
           | [] -> Stdlib.List.rev <$> acc
           | y :: ys -> traverse_tail (M.lift2 Stdlib.List.cons (f y) acc) ys
         in
-        M.lift2 cons' (f x) (traverse_tail (M.return []) xs)
+        let fx = f x in
+        M.lift2 cons' fx (traverse_tail (M.return []) xs)
       ;;
     end)
 
@@ -100,9 +102,14 @@ module Comonad = Preface_make.Comonad.Via_extend (struct
 
   let extend f (_ :: xs as nel) =
     let[@tail_mod_cons] rec aux f xs =
-      match xs with [] -> [] | hd :: tl -> f (hd :: tl) :: aux f tl
+      match xs with
+      | [] -> []
+      | hd :: tl ->
+        let fhd = f (hd :: tl) in
+        fhd :: aux f tl
     in
-    f nel :: aux f xs
+    let fnel = f nel in
+    fnel :: aux f xs
   ;;
 end)
 
