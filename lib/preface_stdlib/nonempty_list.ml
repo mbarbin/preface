@@ -97,13 +97,11 @@ module Comonad = Preface_make.Comonad.Via_extend (struct
 
   let extract (x :: _) = x
 
-  let extend f nel =
-    let rec aux acc nel =
-      match nel with
-      | _ :: [] -> rev (f nel :: acc)
-      | _ :: y :: ys -> aux (f nel :: acc) (y :: ys)
+  let extend f (_ :: xs as nel) =
+    let[@tail_mod_cons] rec aux f xs =
+      match xs with [] -> [] | hd :: tl -> f (hd :: tl) :: aux f tl
     in
-    aux [] nel
+    f nel :: aux f xs
   ;;
 end)
 
