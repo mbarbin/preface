@@ -1,12 +1,11 @@
-type 'a t = 'a Preface_core.Nonempty_list.t =
-  | Last of 'a
-  | ( :: ) of ('a * 'a t)
+type 'a t = 'a Preface_core.Nonempty_list.t = ( :: ) of 'a * 'a list
 
 include (
   Preface_core.Nonempty_list :
     module type of Preface_core.Nonempty_list with type 'a t := 'a t )
 
 let pure x = create x
+let cons' hd tl = hd :: tl
 
 module Foldable = Preface_make.Foldable.Via_fold_right (struct
   type nonrec 'a t = 'a t
@@ -44,15 +43,14 @@ module Applicative_traversable (A : Preface_specs.APPLICATIVE) =
       type 'a t = 'a A.t
       type 'a iter = 'a Preface_core.Nonempty_list.t
 
-      let traverse f l =
+      let traverse f (x :: xs) =
         let open A.Infix in
-        let rec traverse_aux acc = function
-          | Last x -> rev <$> A.lift2 cons (f x) acc
-          | x :: xs -> traverse_aux (A.lift2 cons (f x) acc) xs
+        let rec traverse_tail acc = function
+          | [] -> Stdlib.List.rev <$> acc
+          | y :: ys -> traverse_tail (A.lift2 Stdlib.List.cons (f y) acc) ys
         in
-        match l with
-        | Last x -> create <$> f x
-        | x :: xs -> traverse_aux (create <$> f x) xs
+        let fx = f x in
+        A.lift2 cons' fx (traverse_tail (A.pure []) xs)
       ;;
     end)
 
@@ -76,15 +74,14 @@ module Monad_traversable (M : Preface_specs.MONAD) =
       type 'a t = 'a M.t
       type 'a iter = 'a Preface_core.Nonempty_list.t
 
-      let traverse f l =
+      let traverse f (x :: xs) =
         let open M.Infix in
-        let rec traverse_aux acc = function
-          | Last x -> rev <$> M.lift2 cons (f x) acc
-          | x :: xs -> traverse_aux (M.lift2 cons (f x) acc) xs
+        let rec traverse_tail acc = function
+          | [] -> Stdlib.List.rev <$> acc
+          | y :: ys -> traverse_tail (M.lift2 Stdlib.List.cons (f y) acc) ys
         in
-        match l with
-        | Last x -> f x >|= create
-        | x :: xs -> traverse_aux (f x >|= create) xs
+        let fx = f x in
+        M.lift2 cons' fx (traverse_tail (M.return []) xs)
       ;;
     end)
 
@@ -101,10 +98,18 @@ module Invariant = Preface_make.Invariant.From_functor (Functor)
 module Comonad = Preface_make.Comonad.Via_extend (struct
   type nonrec 'a t = 'a t
 
-  let extract = function Last x | x :: _ -> x
+  let extract (x :: _) = x
 
-  let rec extend f nel =
-    match nel with Last _ -> Last (f nel) | _ :: xs -> f nel :: extend f xs
+  let extend f (_ :: xs as nel) =
+    let[@tail_mod_cons] rec aux f xs =
+      match xs with
+      | [] -> []
+      | hd :: tl ->
+        let fhd = f (hd :: tl) in
+        fhd :: aux f tl
+    in
+    let fnel = f nel in
+    fnel :: aux f xs
   ;;
 end)
 

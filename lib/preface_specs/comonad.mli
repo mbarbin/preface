@@ -3,7 +3,7 @@
 (** {2 Laws}
 
     - [extend extract = id]
-    - [(extend %> extract) f = f]
+    - [extend f %> extract = f]
     - [extend g %> extend f = extend (extend g %> f)]
     - [f =>= extract = f]
     - [extract =>= f = f]
