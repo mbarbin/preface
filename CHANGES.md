@@ -32,7 +32,7 @@
 - Add `Kleisli` and `Cokleisli` [**@gr-im**](https://github.com/gr-im)
 - Add `Join`, `Joker` and `Clown` [**@gr-im**](https://github.com/gr-im)
 - Relax constraint for definition of `Profunctor` and `Choice` using the Kleisli Arrow [**@gr-im**](https://github.com/gr-im)
-- Make `List` and `Nonenmpty_list` `Traversable` implementations (for both `Applicative` and `Monad`) Tail-recursive [**@xvw**](https://github.com/xvw)
+- Make `List` and `Nonempty_list` `Traversable` implementations (for both `Applicative` and `Monad`) Tail-recursive [**@xvw**](https://github.com/xvw)
 - Add `Seq` module in Stdlib (with `Functor`, `Applicative` (with `Traversable`), `Alternative`, `Monad` (with `Traversable`), `Monad_plus`, `Monoid` and `Foldable`) [**@xvw**](https://github.com/xvw)
 - Add `mli` for stdlib's test and example's test (in order to track unused tests) [**@xvw**](https://github.com/xvw)
 - Use absolute URLs for image in documentation (in order to fit with the new version of OCaml.org) [**@xvw**](https://github.com/xvw)
