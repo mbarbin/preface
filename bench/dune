@@ -1,3 +1,9 @@
 (executable
  (name bench_mapi)
  (libraries unix))
+
+(executable
+ (name bench_mapi_core)
+ (libraries core core_bench core_unix)
+ (preprocess
+  (pps ppx_jane)))
