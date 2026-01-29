@@ -1,0 +1,24 @@
+
+=== List size: 1 ===
+current (pattern match): 0.0078 s (1000000 iters, 7.79 ns/iter)
+closure (succ i)      : 0.0052 s (1000000 iters, 5.16 ns/iter)
+
+=== List size: 5 ===
+current (pattern match): 0.0038 s (200000 iters, 19.16 ns/iter)
+closure (succ i)      : 0.0040 s (200000 iters, 20.04 ns/iter)
+
+=== List size: 10 ===
+current (pattern match): 0.0036 s (100000 iters, 36.13 ns/iter)
+closure (succ i)      : 0.0040 s (100000 iters, 39.91 ns/iter)
+
+=== List size: 50 ===
+current (pattern match): 0.0032 s (20000 iters, 160.75 ns/iter)
+closure (succ i)      : 0.0041 s (20000 iters, 206.85 ns/iter)
+
+=== List size: 100 ===
+current (pattern match): 0.0033 s (10000 iters, 329.71 ns/iter)
+closure (succ i)      : 0.0041 s (10000 iters, 412.80 ns/iter)
+
+=== List size: 1000 ===
+current (pattern match): 0.0036 s (1000 iters, 3633.98 ns/iter)
+closure (succ i)      : 0.0043 s (1000 iters, 4333.97 ns/iter)
