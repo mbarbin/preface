@@ -5,6 +5,7 @@ include (
     module type of Preface_core.Nonempty_list with type 'a t := 'a t )
 
 let pure x = create x
+let cons' hd tl = hd :: tl
 
 module Foldable = Preface_make.Foldable.Via_fold_right (struct
   type nonrec 'a t = 'a t
@@ -44,11 +45,11 @@ module Applicative_traversable (A : Preface_specs.APPLICATIVE) =
 
       let traverse f (x :: xs) =
         let open A.Infix in
-        let rec traverse_aux acc = function
-          | [] -> rev <$> acc
-          | y :: ys -> traverse_aux (A.lift2 cons (f y) acc) ys
+        let rec traverse_tail acc = function
+          | [] -> Stdlib.List.rev <$> acc
+          | y :: ys -> traverse_tail (A.lift2 Stdlib.List.cons (f y) acc) ys
         in
-        traverse_aux (create <$> f x) xs
+        A.lift2 cons' (f x) (traverse_tail (A.pure []) xs)
       ;;
     end)
 
@@ -74,11 +75,11 @@ module Monad_traversable (M : Preface_specs.MONAD) =
 
       let traverse f (x :: xs) =
         let open M.Infix in
-        let rec traverse_aux acc = function
-          | [] -> rev <$> acc
-          | y :: ys -> traverse_aux (M.lift2 cons (f y) acc) ys
+        let rec traverse_tail acc = function
+          | [] -> Stdlib.List.rev <$> acc
+          | y :: ys -> traverse_tail (M.lift2 Stdlib.List.cons (f y) acc) ys
         in
-        traverse_aux (f x >|= create) xs
+        M.lift2 cons' (f x) (traverse_tail (M.return []) xs)
       ;;
     end)
 
