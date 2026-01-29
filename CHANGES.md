@@ -1,3 +1,7 @@
+## vX.X.X (Unreleased)
+
+- Adopt a single variant representation for `Nonempty_list` as done in `YOCaml` and a few [other projects](https://github.com/ocaml/ocaml/discussions/14261) [**@mbarbin**](https://github.com/mbarbin), review by [**@xvw**](https://github.com/xvw)
+
 ## v1.1.0 (February 2025)
 
 - Some fixture for `5.3.0` [**@xvw**](https://github.com/xvw)
